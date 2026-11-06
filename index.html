@@ -10290,6 +10290,7 @@ document.querySelectorAll(".start-build").forEach(window.__ypStartBuild);
 </style>
 <script>(function () {
   if (!matchMedia("(max-width: 760px) and (hover: none)").matches) return;
+  return;   // How I work on phones is a row you swipe now (style hiw-mob); this old pager held the page there and swallowed the swipes
   const LEAD = 0.05, BEATS = 0.86, html = document.documentElement;
   let tries = 0;
   const init = () => {
@@ -13406,6 +13407,7 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   html.flow-static #spline [data-flow-rail] { display: flex !important; grid-template-columns: none !important; grid-template-rows: none !important; gap: 0;
     overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; scroll-padding: 0 20px; box-sizing: border-box; }
   html.flow-static #spline [data-flow-rail]::-webkit-scrollbar { display: none; }
+  html.flow-static #spline [data-flow-rail] { pointer-events: auto; touch-action: pan-x pan-y; }   /* its box ignores the pointer (it was a picture that moved with the scroll), so the row must take touches itself */
   html.flow-static #spline [data-flow-rail] > article[data-step] { display: flex !important; flex-direction: column; flex: 0 0 80% !important; width: 80% !important; scroll-snap-align: start; margin-top: 0 !important; }
   html.flow-static #spline [data-flow-rail] > article[data-step] > [data-plate-box] { flex: 0 0 auto !important; height: 210px !important; min-height: 210px !important; position: relative; }
   html.flow-static #spline [data-flow-rail] > article[data-step] { row-gap: 16px !important; }
