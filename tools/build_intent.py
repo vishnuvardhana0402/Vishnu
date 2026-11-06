@@ -10,6 +10,6 @@ leak = [w for w in ('<!--REVIEW', 'class="rv"', 'id="clients"', 'id="checklist"'
 assert not leak, 'review-only text left in the public page: %s' % leak
 open('case/intent-email/index.html', 'w', encoding='utf8').write(public)
 os.makedirs('case/intent-email/_review', exist_ok=True)
-review = src.replace('src="img/', 'src="../img/').replace('href="prototype/"', 'href="../prototype/"').replace('f.src = "prototype/"', 'f.src = "../prototype/"')
+review = src.replace('src="img/', 'src="../img/').replace('href="prototype/"', 'href="../prototype/"').replace('fr.src = "prototype/"', 'fr.src = "../prototype/"')
 open('case/intent-email/_review/index.html', 'w', encoding='utf8').write(review)
 print('public', len(public), 'review', len(review))
