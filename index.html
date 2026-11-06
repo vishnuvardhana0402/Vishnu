@@ -635,7 +635,7 @@ void main() {
    scrolls on up with the work section joined to its lower edge, as one page. */
 (function () {
   const hx = window.__hx; if (!hx) return;
-  const html = document.documentElement, RUN = 1.15;   // screens of scrolling the hero holds before the page moves on
+  const html = document.documentElement, PHONE = innerWidth <= 760, RUN = PHONE ? 0.35 : 1.15;   // phones: the name stands still, so the hero holds only a short moment   // screens of scrolling the hero holds before the page moves on
   // Give me the hard part…: the promises flow across the width. Every letter starts dim and lights up in reading
   // order, tied to the scroll: the lighting runs from when the text's top reaches 90% of the screen to when the
   // text sits centred on it, and runs back the same way when scrolling up.
@@ -662,7 +662,13 @@ void main() {
     addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(draw); }, { passive: true });
     addEventListener("resize", () => { last = -1; draw(); }); draw();
   });
-  const TEXT = "Vishnuvardhan - Product Designer";
+  // phones: the name alone, sized to the width and standing still above the head, so it reads in full (the line that
+  // slides across the screen only ever showed pieces of it there)
+  const TEXT = PHONE ? "Vishnu|vardhan" : "Vishnuvardhan - Product Designer";   // "|": a line break (phones, two lines)
+  const fsOf = () => { const W = innerWidth, H = innerHeight, base = Math.min(0.3 * H, 0.36 * W); if (!PHONE) return base;
+    const m = document.createElement("canvas").getContext("2d"); m.font = "800 100px 'Plus Jakarta Sans', system-ui, sans-serif"; if ("letterSpacing" in m) m.letterSpacing = "-4px";
+    const w = Math.max.apply(null, TEXT.toUpperCase().split("|").map(t => m.measureText(t).width));
+    return Math.min(base, 100 * W * 0.86 / Math.max(1, w)); };
   const LINE_END = 1.2, QUOTE_AT = 0.8;   // the line's pass spans about 1.4 screens (RUN x LINE_END): its last letters leave as the page starts to move on
   html.style.setProperty("--hx-run", (RUN * 100) + "vh");
   html.classList.add("hx-pin");
@@ -773,16 +779,17 @@ void main() {
       cv.style.top = L.band.top + "px"; cv.style.height = L.band.h + "px";
     };
     L.paint = () => {
-      const W = innerWidth, H = innerHeight, fs = Math.min(0.3 * H, 0.36 * W), font = "800 " + fs + "px 'Plus Jakarta Sans', system-ui, sans-serif";
-      const label = TEXT.toUpperCase(), ls = (-0.04 * fs) + "px";
+      const W = innerWidth, H = innerHeight, fs = fsOf(), font = "800 " + fs + "px 'Plus Jakarta Sans', system-ui, sans-serif";
+      const lines = TEXT.toUpperCase().split("|"), ls = (-0.04 * fs) + "px", lh = fs * 0.9;
       ctx.font = font; if ("letterSpacing" in ctx) ctx.letterSpacing = ls;
-      L.TW = Math.ceil(ctx.measureText(label).width + fs * 0.2); L.TH = Math.ceil(fs * 1.05);
+      const lw = lines.map(t => ctx.measureText(t).width);
+      L.TW = Math.ceil(Math.max.apply(null, lw) + fs * 0.2); L.TH = Math.ceil(fs * 1.05 + lh * (lines.length - 1));
       const k = Math.min(Math.min(2, devicePixelRatio || 1), (maxT - 2) / L.TW);   // the texture's pixels per CSS pixel
       words.width = Math.round(L.TW * k); words.height = Math.round(L.TH * k);
       ctx.setTransform(k, 0, 0, k, 0, 0); ctx.clearRect(0, 0, L.TW, L.TH);
       ctx.font = font; if ("letterSpacing" in ctx) ctx.letterSpacing = ls;   // resizing the canvas reset these
       ctx.fillStyle = getComputedStyle(document.body).color; ctx.textBaseline = "middle";
-      ctx.fillText(label, fs * 0.1, L.TH * 0.53);
+      lines.forEach((t, i) => ctx.fillText(t, lines.length > 1 ? (L.TW - lw[i]) / 2 : fs * 0.1, fs * 0.55 + lh * i));
       gl.bindTexture(gl.TEXTURE_2D, tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, words);
       findBand(); L.last = null;
     };
@@ -803,7 +810,7 @@ void main() {
   // the head instead, its lower edge passing behind the crown, leaving the name readable (the photo's height
   // follows its CSS: min(70vh, 125vw) on upright screens)
   const lineY = () => { const W = innerWidth, H = innerHeight; if (H < W * 1.3) return H * 0.5;
-    const ph = Math.min(0.7 * H, 1.25 * W), fs = Math.min(0.3 * H, 0.36 * W); return H - ph - fs * 0.1; };
+    const ph = Math.min(0.7 * H, 1.25 * W), fs = fsOf(); return H - ph - fs * (PHONE ? 1.6 : 0.1); };
   const back = lens(-0.3, false), front = lens(0.45, true), gl = back && front;
   // the layers, back to front, into the sticky box
   const stage = document.createElement("div"); stage.className = "hx-stage";
@@ -827,7 +834,7 @@ void main() {
   const draw = now => {
     raf = 0; const { W, lo, hi } = span();
     const dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 1 / 60; lastT = now;
-    if (tx == null) { tx = W * 0.04 - progress() * (W * 0.04 - lo); lastP = progress(); }   // first frame
+    if (tx == null) { tx = PHONE ? (W - back.TW) / 2 : W * 0.04 - progress() * (W * 0.04 - lo); lastP = progress(); }   // first frame
     tx = Math.max(lo, Math.min(hi, tx));
     cx = cx == null ? tx : cx + (tx - cx) * (1 - Math.exp(-dt * 10));
     if (Math.abs(tx - cx) < 0.3) cx = tx;
@@ -845,7 +852,7 @@ void main() {
   const queue = () => { if (!raf && !html.classList.contains("hx-past")) raf = requestAnimationFrame(draw); };
   addEventListener("scroll", () => {
     const p = progress(), dp = p - lastP; lastP = p;
-    if (tx != null && dp) { const { W, m, lo, hi } = span(); tx = Math.max(lo, Math.min(hi, tx - dp * (W + 2 * m + back.TW))); }
+    if (tx != null && dp && !PHONE) { const { W, m, lo, hi } = span(); tx = Math.max(lo, Math.min(hi, tx - dp * (W + 2 * m + back.TW))); }
     const dy = scrollY - lastY; lastY = scrollY;
     if (dy) { const dir = dy > 0 ? 0 : 1; rev = dir === want ? 0 : rev + Math.abs(dy); if (rev > 24) { want = dir; rev = 0; } }
     if (dp || side !== want) queue();
@@ -9095,7 +9102,7 @@ class YPSections {
     this.flowStop = () => { if (st.raf) cancelAnimationFrame(st.raf); st.raf = 0; if (st.refRaf) cancelAnimationFrame(st.refRaf); st.refRaf = 0; clearTimeout(st.refT); clearTimeout(st.settleT); };
     // Tablets and laptops: one still screen. Every card at rest and every icon lit; nothing pins the page or pages
     // the scroll (the layout is in yp-v21, keyed to html.flow-static). Phones keep the pager below.
-    if (matchMedia("(min-width: 768px)").matches) {
+    if (true) {   // phones use it too, as a row of cards to swipe (their pager never moved past the first card)
       document.documentElement.classList.add("flow-static");
       if (box) box.setAttribute("data-flow", "static");
       st.steps.forEach(el => { el.classList.remove("is-lit"); el.style.filter = ""; el.style.opacity = ""; });
@@ -13392,4 +13399,38 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   .mp-top .mp-back.start-build .label { font-size: 13px; left: calc(var(--sb) * 62px + (118px - var(--sb) * 62px - var(--lw, 62px)) / 2) !important; }
 }
 </style>
+<style id="hiw-mob">
+/* How I work on phones: the same four cards, side by side in a row you swipe through, one card and a peek of the
+   next in view; they light one after another as the row arrives, like on larger screens */
+@media (max-width: 767px) {
+  html.flow-static #spline [data-flow-rail] { display: flex !important; grid-template-columns: none !important; grid-template-rows: none !important; gap: 0;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 20px; scroll-padding: 0 20px; box-sizing: border-box; }
+  html.flow-static #spline [data-flow-rail]::-webkit-scrollbar { display: none; }
+  html.flow-static #spline [data-flow-rail] > article[data-step] { display: flex !important; flex-direction: column; flex: 0 0 80% !important; width: 80% !important; scroll-snap-align: start; margin-top: 0 !important; }
+  html.flow-static #spline [data-flow-rail] > article[data-step] > [data-plate-box] { flex: 0 0 auto !important; height: 210px !important; min-height: 210px !important; position: relative; }
+  html.flow-static #spline [data-flow-rail] > article[data-step] { row-gap: 16px !important; }
+  html.flow-static #spline [data-flow-rail] > article[data-step] > p { min-height: 3em; margin: 0 !important; }
+  html.flow-static #spline [data-flow-rail] > article[data-step] > ul { margin-top: auto; }
+  html.flow-static #spline [data-flow-rail] > div[aria-hidden="true"]:first-child { display: none; }
+  .hiw-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+  .hiw-dots i { width: 6px; height: 6px; border-radius: 99px; background: rgba(255,255,255,.25); transition: width .35s cubic-bezier(.16,1,.3,1), background .35s ease; }
+  html:not(.dark) .hiw-dots i { background: rgba(16,16,20,.2); }
+  .hiw-dots i.on { width: 22px; background: currentColor; }
+}
+@media (min-width: 768px) { .hiw-dots { display: none; } }
+</style>
+<script id="hiw-mob-js">
+/* the dots under the How I work row on phones follow the card in view */
+(function () {
+  var rail = document.querySelector("#spline [data-flow-rail]"); if (!rail) return;
+  var cards = [].slice.call(rail.querySelectorAll("article[data-step]")); if (!cards.length) return;
+  var dots = document.createElement("div"); dots.className = "hiw-dots"; dots.setAttribute("aria-hidden", "true");
+  dots.innerHTML = cards.map(function () { return "<i></i>"; }).join(""); rail.parentNode.insertBefore(dots, rail.nextSibling);
+  var ds = [].slice.call(dots.children), raf = 0;
+  var mark = function () { raf = 0; var x = rail.scrollLeft, best = 0, bd = 1e9;
+    cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft - rail.offsetLeft - 20 - x); if (d < bd) { bd = d; best = i; } });
+    ds.forEach(function (d, i) { d.classList.toggle("on", i === best); }); };
+  rail.addEventListener("scroll", function () { if (!raf) raf = requestAnimationFrame(mark); }, { passive: true }); mark();
+})();
+</script>
 </body></html>
