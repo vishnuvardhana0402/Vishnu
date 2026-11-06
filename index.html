@@ -4627,7 +4627,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
 
 
 <template id="yp-page-more"><div class="mp mc" data-mc-page="">
-  <div class="mp-top"><a href="#/" data-go-back="" class="mp-back"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg>All work</a></div>
+  <div class="mp-top"><a href="#/" data-go-back="" class="mp-back start-build"><span class="tile"></span><svg class="icon" viewBox="0 0 30 15" aria-hidden="true"></svg><span class="label">All work</span></a></div>
   <section data-mc="" aria-label="More projects" style="position: relative; z-index: 30; width: 100%; background: #0f0f10; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #ffffff;">
 <div data-case-bg="" aria-hidden="true" style="position: sticky; top: 0; z-index: 0; width: 100%; height: 100vh; height: 100svh; margin-bottom: -100vh; overflow: hidden; background: #0f0f10; pointer-events: none;">
 
@@ -9782,6 +9782,7 @@ const go = next => {
     ypRevealSweep();
   } else {
     pageHost.appendChild(document.getElementById(PAGES[next]).content.cloneNode(true));
+    if (window.__ypStartBuild) pageHost.querySelectorAll(".start-build").forEach(window.__ypStartBuild);   // the All work button is a Let's Talk style button
     if (foot) { pageHost.appendChild(foot); if (btt) pageHost.appendChild(btt); }
     window.__ypImgs(pageHost);
     window.scrollTo(0, 0);
@@ -13378,4 +13379,17 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   }, 1500); });
 })();
 </script>
+<style id="mp-back-sb">
+/* More projects: "All work" is the same button as Let's Talk, its arrows pointing back */
+.mp-top .mp-back.start-build { --sb: 0.7692; display: inline-block; gap: 0; padding: 0; height: calc(var(--sb) * 65px); width: calc(var(--sb) * 200px); background: var(--sb-bg); box-shadow: none; translate: none; color: inherit; }
+.mp-top .mp-back.start-build:hover { translate: none; background-color: var(--sb-tile); }
+.mp-top .mp-back.start-build .label { font-size: 15px; }
+.mp-top .mp-back.start-build .icon { scale: -1 1; }
+.mp-top .mp-back.start-build:hover .icon { transform: translateX(calc(-1 * var(--sb-shift))) !important; }   /* flipped, so the slide runs the other way */
+#yp-page .mp a.mp-back.start-build, #yp-page .mp a.mp-back.start-build:hover { color: inherit; }
+@media (max-width: 760px) {
+  .mp-top .mp-back.start-build { --sb: 0.62; width: 118px; height: calc(var(--sb) * 65px); }
+  .mp-top .mp-back.start-build .label { font-size: 13px; left: calc(var(--sb) * 62px + (118px - var(--sb) * 62px - var(--lw, 62px)) / 2) !important; }
+}
+</style>
 </body></html>
