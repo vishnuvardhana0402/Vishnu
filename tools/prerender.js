@@ -15,17 +15,11 @@ const NAME = 'Vishnuvardhana Chary Sriramoju';
 const ROOT = path.resolve(__dirname, '..');
 const ROUTES = [
   { hash: '#/', path: '', title: `${NAME} | Product Designer`, image: 'og/home.jpg',
-    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: VE.AI (AI browser) and Top-10 Mobiles (live store dashboards).' },
+    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case study: VE.AI (AI browser).' },
   { hash: '#/case', path: 'case/ve-browser/', title: `Ve Browser: an AI browser that stays one step ahead | ${NAME}`, image: 'og/ve-browser.jpg',
     desc: 'Case study: Ve Browser, a proactive AI that sees your whole working day, works out what comes next and has it ready, from the Dynamic Notch to the AI Browser. Designed from first idea to final screen.' },
-  { hash: '#/dashboard', path: 'case/top-10-dashboards/', title: `Top-10 Mobiles dashboards: Store Admin and Super Admin | ${NAME}`, image: 'og/top-10-dashboards.jpg',
-    desc: 'Case study: the two live dashboards Top-10 Mobiles staff use to run every online order, Store Admin for each store and Super Admin for head office.' },
-  { hash: '#/apps', path: 'case/top-10-apps/', title: `Top-10 Mobiles apps: from a tap to your door | ${NAME}`, image: 'og/top-10-apps.jpg',
-    desc: 'Case study: a customer app to order phones online and a delivery partner app for store staff, with a code check every time an order changes hands.' },
-  { hash: '#/web', path: 'case/top-10-website/', title: `Top-10 Mobiles website: the whole store in any browser | ${NAME}`, image: 'og/top-10-website.jpg',
-    desc: 'Case study: the Top-10 Mobiles responsive website, the same store laid out for desktop, tablet and phone, with delivery or store pickup.' },
   { hash: '#/more', path: 'more/', title: `More projects | ${NAME}`, image: 'og/more.jpg',
-    desc: 'More projects by Vishnuvardhana Chary Sriramoju: EduBridge dashboard, Tata Neu app redesign, WanderWise travel app, the Top-10 Mobiles website and Vijayeesam.' },
+    desc: 'More projects by Vishnuvardhana Chary Sriramoju: Vijayeesam, WanderWise travel app, EduBridge dashboard and Tata Neu app redesign.' },
 ];
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const meta = r => [
