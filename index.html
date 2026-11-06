@@ -18,7 +18,58 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     // the scene is centred on the hero (the visible screen with the toolbar showing), not on the taller full screen
     var ch = document.documentElement.clientHeight || innerHeight; window.__SHtop = Math.round((ch - h) / 2);
     document.documentElement.style.setProperty("--hx-sh", h + "px"); document.documentElement.style.setProperty("--hx-sht", window.__SHtop + "px"); } return h; }; })();</script>
-<title>Product Designer</title>
+<title>Vishnuvardhana Chary Sriramoju | Product Designer</title>
+<script id="yp-paths">
+/* Real addresses for the pages. Inside the app the pages still switch by hash (#/case and so on); the address bar
+   shows the real path (/case/ve-browser/), which is also a prerendered page of its own for link previews and
+   crawlers. Old #/ links keep working and are rewritten to their paths. */
+(function () {
+  var R = { "#/": "", "#/case": "case/ve-browser/", "#/dashboard": "case/top-10-dashboards/", "#/apps": "case/top-10-apps/", "#/web": "case/top-10-website/", "#/more": "more/" };
+  var T = { "#/": "Vishnuvardhana Chary Sriramoju | Product Designer", "#/case": "Ve Browser | AI browser case study | Vishnuvardhana Chary Sriramoju",
+    "#/dashboard": "Top-10 Mobiles dashboards | Case study | Vishnuvardhana Chary Sriramoju", "#/apps": "Top-10 Mobiles apps | Case study | Vishnuvardhana Chary Sriramoju",
+    "#/web": "Top-10 Mobiles website | Case study | Vishnuvardhana Chary Sriramoju", "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
+  var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
+  var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
+    for (var h in R) if (R[h] === rest || R[h] === rest + "/") return h; return "#/"; };
+  window.__ypBase = base;
+  window.__ypHash = function () { return location.hash || fromPath(); };
+  var sync = function () { var h = location.hash; if (!(h in R)) return;
+    history.replaceState(history.state, "", base + R[h] + location.search); if (T[h]) document.title = T[h]; };
+  // links are written for the live address (/Vishnu/...); anywhere else (a preview copy), point them at this copy
+  var fix = function () { if (base === "/Vishnu/") return;
+    document.querySelectorAll('a[href^="/Vishnu/"]').forEach(function (a) { a.setAttribute("href", base + a.getAttribute("href").slice(8)); }); };
+  addEventListener("hashchange", function () { setTimeout(sync, 0); setTimeout(fix, 300); });
+  addEventListener("DOMContentLoaded", function () { setTimeout(sync, 0); fix(); });
+  addEventListener("load", fix);
+  // back and forward land on addresses without a hash: hand the page to the router as its hash
+  addEventListener("popstate", function () { if (!location.hash) location.replace("#" + fromPath().slice(1)); });
+  // links written as real paths (so crawlers and visitors without JavaScript can follow them) open in place
+  document.addEventListener("click", function (e) {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest("a[href]"); if (!a || a.target === "_blank" || a.getAttribute("href").charAt(0) === "#") return;
+    var u = new URL(a.getAttribute("href"), location.href); if (u.origin !== location.origin || u.pathname.indexOf(base) !== 0) return;
+    var rest = u.pathname.slice(base.length);
+    for (var h in R) if (h !== "#/" && R[h] === rest) { e.preventDefault(); location.hash = h; return; }
+  }, true);
+})();
+</script>
+<!--OG start-->
+<meta name="description" content="Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: VE.AI (AI browser) and Top-10 Mobiles (live store dashboards).">
+<link rel="canonical" href="https://vishnuvardhana0402.github.io/Vishnu/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vishnuvardhana Chary Sriramoju">
+<meta property="og:title" content="Vishnuvardhana Chary Sriramoju | Product Designer">
+<meta property="og:description" content="Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: VE.AI (AI browser) and Top-10 Mobiles (live store dashboards).">
+<meta property="og:url" content="https://vishnuvardhana0402.github.io/Vishnu/">
+<meta property="og:image" content="https://vishnuvardhana0402.github.io/Vishnu/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vishnuvardhana Chary Sriramoju | Product Designer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vishnuvardhana Chary Sriramoju | Product Designer">
+<meta name="twitter:description" content="Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: VE.AI (AI browser) and Top-10 Mobiles (live store dashboards).">
+<meta name="twitter:image" content="https://vishnuvardhana0402.github.io/Vishnu/og/home.jpg">
+<!--OG end-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
@@ -279,7 +330,7 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     // the theme circle lives in the pill, next to the home icon; the Let's Talk pill (start-build-button.html)
     // stands top right and travels into the pill on scroll, as the photo does from the left
     sr.parentNode.insertBefore(th, sr);
-    top.querySelector(".hx-home").insertAdjacentHTML("afterend", '<a class="hx-home hx-cv" href="https://drive.google.com/file/d/1L0DRqCXpfW73itWXrDCEkd8rdRtF9fuN/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Resume (PDF, opens in a new tab)"><i aria-hidden="true"></i><span>Resume</span></a>');
+    top.querySelector(".hx-home").insertAdjacentHTML("afterend", '<a class="hx-home hx-cv" href="/Vishnu/vishnuvardhan-sriramoju-resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF, opens in a new tab)"><i aria-hidden="true"></i><span>Resume</span></a>');
     const right = top.querySelector(".hx-right");
     right.insertAdjacentHTML("beforeend", '<a class="hx-cta start-build" href="#site-foot"><span class="tile"></span><svg class="icon" viewBox="0 0 30 15" aria-hidden="true"></svg><span class="label">Let\u2019s Talk</span></a>');
     const tb = right.querySelector(".hx-cta");
@@ -346,7 +397,7 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     addEventListener("resize", reset);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(reset);
     reset(); window.__hxReset = reset; }
-  top.querySelectorAll("[data-hx-home]").forEach(a => a.addEventListener("click", e => { if ((location.hash || "#/") === "#/" || location.hash === "") { e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); } }));
+  top.querySelectorAll("[data-hx-home]").forEach(a => a.addEventListener("click", e => { if (window.__ypHash() === "#/") { e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); } }));
   const themeBtn = top.querySelector(".hx-theme"); window.__themeBtn = themeBtn;
   const playThemeParticles = next => {
     const thumb = themeBtn.querySelector(".hx-toggle-thumb");
@@ -4246,7 +4297,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
   <div aria-hidden="true" data-blur-bar="" style="position: sticky; top: 0; z-index: 3; height: 160px; margin-bottom: -160px; pointer-events: none; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);"></div>
   <div style="position: relative; z-index: 2; box-sizing: border-box; padding: clamp(80px, 14vh, 160px) var(--yp-case-inset, clamp(24px, 7vw, 132px)) clamp(80px, 14vh, 160px); width: 100%; max-width: calc(var(--yp-case-max, calc(58vh * 1.7)) + 2 * var(--yp-case-inset, clamp(24px, 7vw, 132px))); margin: 0 auto; display: flex; flex-direction: column; gap: clamp(160px, 34vh, 360px);">
   
-    <a href="#/case" data-rise="" data-case="0" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
+    <a href="/Vishnu/case/ve-browser/" data-rise="" data-case="0" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
       <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
         <span style="padding-left: 16px;">01</span>
         <span style="display: flex; gap: 10px; padding-left: 16px;">Year<span style="color: #ffffff;">2025</span></span>
@@ -4264,7 +4315,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
       </div>
     </a>
   
-    <a href="#/dashboard" data-rise="" data-case="1" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
+    <a href="/Vishnu/case/top-10-dashboards/" data-rise="" data-case="1" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
       <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
         <span style="padding-left: 16px;">02</span>
         <span style="display: flex; gap: 10px; padding-left: 16px;">Year<span style="color: #ffffff;">2025</span></span>
@@ -4282,7 +4333,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
       </div>
     </a>
   
-    <a href="#/apps" data-rise="" data-case="2" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
+    <a href="/Vishnu/case/top-10-apps/" data-rise="" data-case="2" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
       <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
         <span style="padding-left: 16px;">03</span>
         <span style="display: flex; gap: 10px; padding-left: 16px;">Year<span style="color: #ffffff;">2025</span></span>
@@ -4323,7 +4374,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
   <div data-ref="caseCursorRef" aria-hidden="true" style="position: fixed; left: 0; top: 0; z-index: 60; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: #ffffff; color: #0f0f10; display: grid; place-items: center; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; pointer-events: none; opacity: 0; transform: translate3d(-200px,-200px,0) scale(0.6); will-change: transform, opacity;">View</div>
   <div aria-hidden="true" data-blur-bar="" style="position: sticky; bottom: 0; z-index: 3; height: 180px; margin-top: -180px; pointer-events: none; -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);"></div>
 </section>
-<a id="more-band" class="ym-band" href="#/more" aria-label="More projects"><span class="ym-glow" aria-hidden="true"></span><span class="ym-in"><b class="ym-word" aria-hidden="true"><span class="ym-ch" style="--d: 0ms"><span>M</span><span style="color: #7433d9">M</span></span><span class="ym-ch" style="--d: 28ms"><span>o</span><span style="color: #5944d6">o</span></span><span class="ym-ch" style="--d: 56ms"><span>r</span><span style="color: #3e54d4">r</span></span><span class="ym-ch" style="--d: 84ms"><span>e</span><span style="color: #2365d1">e</span></span><span class="ym-sp"></span><span class="ym-ch" style="--d: 112ms"><span>p</span><span style="color: #2369c7">p</span></span><span class="ym-ch" style="--d: 140ms"><span>r</span><span style="color: #5854b0">r</span></span><span class="ym-ch" style="--d: 168ms"><span>o</span><span style="color: #8c3e98">o</span></span><span class="ym-ch" style="--d: 196ms"><span>j</span><span style="color: #c12981">j</span></span><span class="ym-ch" style="--d: 224ms"><span>e</span><span style="color: #d43367">e</span></span><span class="ym-ch" style="--d: 252ms"><span>c</span><span style="color: #d64c4c">c</span></span><span class="ym-ch" style="--d: 280ms"><span>t</span><span style="color: #d76531">t</span></span><span class="ym-ch" style="--d: 308ms"><span>s</span><span style="color: #d97e16">s</span></span></b></span></a>
+<a id="more-band" class="ym-band" href="/Vishnu/more/" aria-label="More projects"><span class="ym-glow" aria-hidden="true"></span><span class="ym-in"><b class="ym-word" aria-hidden="true"><span class="ym-ch" style="--d: 0ms"><span>M</span><span style="color: #7433d9">M</span></span><span class="ym-ch" style="--d: 28ms"><span>o</span><span style="color: #5944d6">o</span></span><span class="ym-ch" style="--d: 56ms"><span>r</span><span style="color: #3e54d4">r</span></span><span class="ym-ch" style="--d: 84ms"><span>e</span><span style="color: #2365d1">e</span></span><span class="ym-sp"></span><span class="ym-ch" style="--d: 112ms"><span>p</span><span style="color: #2369c7">p</span></span><span class="ym-ch" style="--d: 140ms"><span>r</span><span style="color: #5854b0">r</span></span><span class="ym-ch" style="--d: 168ms"><span>o</span><span style="color: #8c3e98">o</span></span><span class="ym-ch" style="--d: 196ms"><span>j</span><span style="color: #c12981">j</span></span><span class="ym-ch" style="--d: 224ms"><span>e</span><span style="color: #d43367">e</span></span><span class="ym-ch" style="--d: 252ms"><span>c</span><span style="color: #d64c4c">c</span></span><span class="ym-ch" style="--d: 280ms"><span>t</span><span style="color: #d76531">t</span></span><span class="ym-ch" style="--d: 308ms"><span>s</span><span style="color: #d97e16">s</span></span></b></span></a>
 <section id="services" class="ysx" style="--n:4; --acc:#7433d9">
   <div class="ysx-headwrap">
 <div class="yph"><div class="yph-top"><div class="yph-label"><span><img data-yp-src="0" alt="" draggable="false">What I do</span><i aria-hidden="true"></i></div></div><h2 class="yph-title" aria-label="From bold idea to shipped product."><span class="yph-line yph-grey" aria-hidden="true"><span class="yph-in">From bold idea</span></span></h2><div class="yph-rule" aria-hidden="true"></div><div class="yph-line yph-ink" aria-hidden="true"><span class="yph-in">to shipped product.</span></div><div class="yph-rule" aria-hidden="true"></div></div>
@@ -4529,8 +4580,8 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
   <p class="yft-made"><span class="yft-mn">Vishnuvardhan Portfolio</span><span class="yft-dot" aria-hidden="true">·</span>MADE WITH <span role="img" aria-label="love">💗</span> &amp; PASSION</p>
   <div class="yft-bot">
     <nav class="yft-links" aria-label="Elsewhere">
-      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=vishnuvardhana0402@gmail.com" target="_blank" rel="noopener">Email<i aria-hidden="true">&#8599;</i></a>
-      <a href="https://drive.google.com/file/d/1L0DRqCXpfW73itWXrDCEkd8rdRtF9fuN/view?usp=drivesdk" target="_blank" rel="noopener" data-link="resume">Resume<i aria-hidden="true">&#8599;</i></a>
+      <a href="mailto:vishnuvardhana0402@gmail.com">Email<i aria-hidden="true">&#8599;</i></a>
+      <a href="/Vishnu/vishnuvardhan-sriramoju-resume.pdf" target="_blank" rel="noopener" data-link="resume">Resume<i aria-hidden="true">&#8599;</i></a>
       <a href="https://www.linkedin.com/in/vishnuvardhana0402" data-link="linkedin" target="_blank" rel="noopener">LinkedIn<i aria-hidden="true">&#8599;</i></a>
     </nav>
   </div>
@@ -5810,7 +5861,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
     </a>
 
   
-    <a href="#/web" data-rise="" data-case="3" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
+    <a href="/Vishnu/case/top-10-website/" data-rise="" data-case="3" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
       <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
         <span style="padding-left: 16px;">04</span>
         <span style="display: flex; gap: 10px; padding-left: 16px;">Type<span style="color: #ffffff;">Responsive website</span></span>
@@ -9837,8 +9888,8 @@ function ypGoBack(e) {
   const to = r ? r.hash : "#/";
   const y = r ? r.y : 0;
   // from More projects, "All work" opens the selected work, not the band that led away from it
-  if (/^#\/more/.test(location.hash || "") && to === "#/") window.__ypToWork = true;
-  if ((location.hash || "#/") === to) { window.scrollTo({ top: y, behavior: "smooth" }); return; }
+  if (/^#\/more/.test(window.__ypHash()) && to === "#/") window.__ypToWork = true;
+  if (window.__ypHash() === to) { window.scrollTo({ top: y, behavior: "smooth" }); return; }
   window.__ypRestoreY = y;     // picked up by jump() once the page it belongs to is live
   location.hash = to;
 }
@@ -21731,15 +21782,15 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   var home = function (e) {
     if (e.type === "touchend") { var t = e.changedTouches[0]; if (Math.abs(t.clientX - sx) > 10 || Math.abs(t.clientY - sy) > 10) return; }   // a swipe, not a tap
     var a = e.target.closest && e.target.closest("[data-go-back], .mp-back");
-    if (!a || !/^#\/(more|web|case|dashboard|apps)/.test(location.hash || "")) return;
+    if (!a || !/^#\/(more|web|case|dashboard|apps)/.test(window.__ypHash())) return;
     e.preventDefault(); e.stopPropagation();
     var now = Date.now(); if (now - last < 600) return; last = now;
-    var from = location.hash;
+    var from = window.__ypHash();
     if (/^#\/more/.test(from)) window.__ypToWork = true;
     location.hash = /^#\/web/.test(from) ? "#/more" : "#/";
     setTimeout(function () {
-      if (location.hash === from || (document.body.getAttribute("data-page") || "home") !== "home" && !/^#\/web/.test(from)) {
-        location.replace(location.pathname + location.search + "#/"); location.reload();
+      if (window.__ypHash() === from || (document.body.getAttribute("data-page") || "home") !== "home" && !/^#\/web/.test(from)) {
+        location.replace(window.__ypBase + "#/");
       }
     }, 900);
   };
