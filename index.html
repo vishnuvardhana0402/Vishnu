@@ -232,6 +232,15 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
   document.querySelectorAll(".start-build").forEach(init);
 })();
 </script>
+<style id="mob-hero">
+/* phones: the hero reads at once, name in two big lines and the role beneath, the photo standing on the bottom edge */
+@media (max-width: 760px) {
+  html.hx-phone .hx-l1 { left: 5vw; right: auto; top: 84px; bottom: auto; }
+  html.hx-phone .hx-l2 { left: 5vw; right: auto; top: calc(84px + .86em); bottom: auto; }
+  html.hx-phone .hx-l3 { left: 5vw; right: auto; top: calc(84px + var(--hfs, 76px) * 1.78 + 8px); bottom: auto; font-size: calc(var(--hfs, 76px) * .4); line-height: 1; letter-spacing: -0.03em; }
+  html.hx-phone .hx-l3 .hx-in { background-image: linear-gradient(180deg, rgba(255,255,255,.85), rgba(200,200,205,.6)); }
+}
+</style>
 <script id="hx-early">
 (function () { "use strict";
   const Q = new URLSearchParams(location.search);
@@ -583,7 +592,14 @@ void main() {
    scrolls on up with the work section joined to its lower edge, as one page. */
 (function () {
   const hx = window.__hx; if (!hx) return;
-  const html = document.documentElement, RUN = 1.15;   // screens of scrolling the hero holds before the page moves on
+  const html = document.documentElement, PHONE = innerWidth <= 760, RUN = PHONE ? 0.3 : 1.15;   // screens of scrolling the hero holds before the page moves on
+  // phones: the name stands still in two big lines with the role under it (the sliding line only ever showed fragments)
+  if (PHONE) { html.classList.add("hx-phone");
+    const nm = hx.COPY.name, cut = Math.ceil(nm.length / 2) - 1;
+    hx.L1.firstChild.textContent = nm.slice(0, cut); hx.L2.firstChild.textContent = nm.slice(cut);
+    hx.h1.append(hx.mkLine("hx-l3", hx.COPY.line1 + " " + hx.COPY.line2));
+    const fitP = () => { hx.fitTitle(); hx.h1.style.setProperty("--hfs", hx.h1.style.fontSize); };
+    fitP(); addEventListener("resize", fitP); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitP); }
   // Give me the hard part…: the promises flow across the width. Every letter starts dim and lights up in reading
   // order, tied to the scroll: the lighting runs from when the text's top reaches 90% of the screen to when the
   // text sits centred on it, and runs back the same way when scrolling up.
@@ -752,7 +768,7 @@ void main() {
   // follows its CSS: min(70vh, 125vw) on upright screens)
   const lineY = () => { const W = innerWidth, H = innerHeight; if (H < W * 1.3) return H * 0.5;
     const ph = Math.min(0.7 * H, 1.25 * W), fs = Math.min(0.3 * H, 0.36 * W); return H - ph - fs * 0.1; };
-  const back = lens(-0.3, false), front = lens(0.45, true), gl = back && front;
+  const back = PHONE ? null : lens(-0.3, false), front = PHONE ? null : lens(0.45, true), gl = back && front;   // phones: no sliding line, the name and role stand still
   // the layers, back to front, into the sticky box
   const stage = document.createElement("div"); stage.className = "hx-stage";
   const box = document.createElement("div"); box.className = "hx-pinbox"; stage.append(box);
@@ -5738,11 +5754,8 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
 
       <div data-case-bg-img="4" style="position: absolute; inset: -5%; background: url(assets/more/cards/vijayeesam.webp) center / cover no-repeat; filter: blur(14px) brightness(0.5) saturate(1.1); opacity: 0; transition: opacity 1100ms cubic-bezier(0.22,1,0.36,1); will-change: opacity;"></div>
 
-      <div data-case-bg-img="5" style="position: absolute; inset: -5%; background: url(assets/more/cards/aetherion.webp) center / cover no-repeat; filter: blur(14px) brightness(0.5) saturate(1.1); opacity: 0; transition: opacity 1100ms cubic-bezier(0.22,1,0.36,1); will-change: opacity;"></div>
 
-      <div data-case-bg-img="6" style="position: absolute; inset: -5%; background: url(assets/more/cards/ayuniva.webp) center / cover no-repeat; filter: blur(14px) brightness(0.5) saturate(1.1); opacity: 0; transition: opacity 1100ms cubic-bezier(0.22,1,0.36,1); will-change: opacity;"></div>
 
-      <div data-case-bg-img="7" style="position: absolute; inset: -5%; background: url(assets/more/cards/vrudhi.webp) center / cover no-repeat; filter: blur(14px) brightness(0.5) saturate(1.1); opacity: 0; transition: opacity 1100ms cubic-bezier(0.22,1,0.36,1); will-change: opacity;"></div>
 
     <div style="position: absolute; inset: 0; background-image: var(--yp-a0); background-size: 240px 240px; opacity: 0.34; mix-blend-mode: overlay;"></div>
   </div>
@@ -5845,63 +5858,6 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
           <span style="color: rgba(255,255,255,0.55);">Vijayeesam</span><span style="color: rgba(255,255,255,0.55);">Designed in Figma</span>
         </span>
         <span style="padding-left: 16px; color: #ffffff;">A website for a performance marketing agency.</span>
-        <span style="padding-left: 16px; color: #ffffff;">Visit site</span>
-      </div>
-    </a>
-
-  
-    <a href="https://aetherionpharma.com/" target="_blank" rel="noopener" data-rise="" data-case="5" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="padding-left: 16px;">06</span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Type<span style="color: #ffffff;">Website</span></span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Role<span style="color: #ffffff;">UI/UX Designer</span></span>
-      </div>
-      <div style="position: relative; width: 100%; aspect-ratio: var(--yp-case-ratio, 1.7 / 1); overflow: hidden; background: #0f0f10;">
-        <div data-case-img="" role="img" aria-label="The Aetherion Pharma website on a laptop" style="position: absolute; left: 0; right: 0; top: -16%; bottom: -16%; background: url(assets/more/cards/aetherion-bg.webp) center / cover no-repeat; will-change: transform;"></div><p class="hcw" aria-hidden="true" style="--tint: 64,214,206">Aetherion</p><img class="hcd" src="assets/more/cards/aetherion-dv.webp" alt="" width="2400" height="1350" decoding="async" loading="lazy">
-      </div>
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; padding-top: 14px; transition-delay: 90ms; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="display: flex; gap: 8px; flex-wrap: wrap; padding-left: 16px;">
-          <span style="color: rgba(255,255,255,0.55);">Aetherion Pharma</span><span style="color: rgba(255,255,255,0.55);">Designed in Figma</span>
-        </span>
-        <span style="padding-left: 16px; color: #ffffff;">A website for a pharma and nutraceutical company.</span>
-        <span style="padding-left: 16px; color: #ffffff;">Visit site</span>
-      </div>
-    </a>
-
-  
-    <a href="https://ayunivaremedies.com/" target="_blank" rel="noopener" data-rise="" data-case="6" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="padding-left: 16px;">07</span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Type<span style="color: #ffffff;">Website</span></span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Role<span style="color: #ffffff;">UI/UX Designer</span></span>
-      </div>
-      <div style="position: relative; width: 100%; aspect-ratio: var(--yp-case-ratio, 1.7 / 1); overflow: hidden; background: #0f0f10;">
-        <div data-case-img="" role="img" aria-label="The Ayuniva Remedies website on a laptop" style="position: absolute; left: 0; right: 0; top: -16%; bottom: -16%; background: url(assets/more/cards/ayuniva-bg.webp) center / cover no-repeat; will-change: transform;"></div><p class="hcw" aria-hidden="true" style="--tint: 132,206,96">Ayuniva</p><img class="hcd" src="assets/more/cards/ayuniva-dv.webp" alt="" width="2400" height="1350" decoding="async" loading="lazy">
-      </div>
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; padding-top: 14px; transition-delay: 90ms; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="display: flex; gap: 8px; flex-wrap: wrap; padding-left: 16px;">
-          <span style="color: rgba(255,255,255,0.55);">Ayuniva Remedies</span><span style="color: rgba(255,255,255,0.55);">Built in Framer</span>
-        </span>
-        <span style="padding-left: 16px; color: #ffffff;">A website for a herbal remedies company.</span>
-        <span style="padding-left: 16px; color: #ffffff;">Visit site</span>
-      </div>
-    </a>
-
-  
-    <a href="https://vrudhilifesciences.com/" target="_blank" rel="noopener" data-rise="" data-case="7" style="display: block; color: #ffffff; text-decoration: none; cursor: none;">
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; height: 54px; padding-bottom: 12px; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="padding-left: 16px;">08</span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Type<span style="color: #ffffff;">Website</span></span>
-        <span style="display: flex; gap: 10px; padding-left: 16px;">Role<span style="color: #ffffff;">UI/UX Designer</span></span>
-      </div>
-      <div style="position: relative; width: 100%; aspect-ratio: var(--yp-case-ratio, 1.7 / 1); overflow: hidden; background: #0f0f10;">
-        <div data-case-img="" role="img" aria-label="The Vrudhi Lifesciences website on a laptop" style="position: absolute; left: 0; right: 0; top: -16%; bottom: -16%; background: url(assets/more/cards/vrudhi-bg.webp) center / cover no-repeat; will-change: transform;"></div><p class="hcw" aria-hidden="true" style="--tint: 96,150,255">Vrudhi</p><img class="hcd" src="assets/more/cards/vrudhi-dv.webp" alt="" width="2400" height="1350" decoding="async" loading="lazy">
-      </div>
-      <div data-case-text="" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; padding-top: 14px; transition-delay: 90ms; opacity: 0; transform: translate3d(0,18px,0); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 1100ms cubic-bezier(0.22,1,0.36,1); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55);">
-        <span style="display: flex; gap: 8px; flex-wrap: wrap; padding-left: 16px;">
-          <span style="color: rgba(255,255,255,0.55);">Vrudhi Lifesciences</span><span style="color: rgba(255,255,255,0.55);">Built in Framer</span>
-        </span>
-        <span style="padding-left: 16px; color: #ffffff;">A website for a pharmaceutical supplier.</span>
         <span style="padding-left: 16px; color: #ffffff;">Visit site</span>
       </div>
     </a>
@@ -21746,5 +21702,22 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   /* How I work: the 3D tiles keep their look; the coloured light behind them and the shadow beneath are toned down */
   html #spline [data-spill] { filter: opacity(.32); scale: .8; }
   html #spline [data-ground] { filter: opacity(.5); }
+</style>
+<style id="mob-tune">
+/* phones: tighter vertical rhythm, so the page keeps moving instead of showing empty screens */
+@media (max-width: 760px) {
+  /* the statement: sized to its words, not to a whole screen */
+  #about-drum .track { height: auto !important; }
+  #about-drum .stage { height: auto !important; min-height: 0 !important; padding: 64px 16px 48px !important; }
+  /* selected work: the cards sit closer, with less air above the first and below the last */
+  #showcase > div[style*="flex-direction: column"] { gap: 56px !important; padding-top: 48px !important; padding-bottom: 64px !important; }
+  [data-mc] > div[style*="flex-direction: column"] { gap: 56px !important; padding-top: 84px !important; padding-bottom: 64px !important; }
+  /* how I work: a shorter hold, and a card that is no taller than what is in it */
+  #spline { --yp-run-spline: 260vh !important; }
+  #spline [data-step] > div:nth-child(4) { flex: 0 0 auto !important; height: 210px !important; min-height: 0 !important; }
+  #spline [data-flow-rail] { align-items: flex-start !important; margin-top: max(0px, calc((100svh - 560px) / 2 - 70px)) !important; }
+  #spline [data-flow-rail] > article[data-step] { height: auto !important; min-height: 0 !important; }
+}
+@media (max-width: 380px) { body.hero .hx-cta .label { font-size: 13px; letter-spacing: -0.01em; } }
 </style>
 </body></html>
