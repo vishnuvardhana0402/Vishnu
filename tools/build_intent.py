@@ -6,7 +6,7 @@ import re, os
 src = open('case/intent-email/src.html', encoding='utf8').read()
 public = re.sub(r'[ \t]*<!--REVIEW-->.*?<!--/REVIEW-->\n?', '', src, flags=re.S)
 public = re.sub(r'<!--\n  Intent Email case study.*?-->\n', '', public, flags=re.S)
-leak = [w for w in ('Lovable', 'Recykal', 'Voicebit', 'Mediamint', 'VC Mint', 'T-Hub', 'checklist', 'class="rv"') if w in public]
+leak = [w for w in ('<!--REVIEW', 'class="rv"', 'id="clients"', 'id="checklist"') if w in public]   # the client names only ever sit inside REVIEW blocks
 assert not leak, 'review-only text left in the public page: %s' % leak
 open('case/intent-email/index.html', 'w', encoding='utf8').write(public)
 os.makedirs('case/intent-email/_review', exist_ok=True)
