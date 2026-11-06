@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f5f2">
+<title>Intent Email: directing proactive email assistance | Vishnuvardhana Chary Sriramoju</title>
+<meta name="description" content="Case study: how people direct Ve's proactive email assistant while staying in control. Labels, prepared replies and follow-ups, a morning brief, and conversation by email, in work Gmail and Outlook.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400..700&display=swap">
+<style>
+:root { --bg: #f6f5f2; --ink: #111114; --ink2: #3d3d44; --mut: #6b6b74; --line: rgba(17,17,20,.1); --card: #ffffff;
+  --dark: #121214; --dark2: #1b1b1f; --accent: #111114; --accent-soft: rgba(17,17,20,.06); --ok: #16a34a;
+  --pad: clamp(20px, 5vw, 64px); --read: 680px; --wide: 1080px; --nav: 220px; --ease: cubic-bezier(.32,.72,0,1); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.65 'Google Sans', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+img { display: block; max-width: 100%; height: auto; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* top bar */
+.top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 var(--pad);
+  background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
+.top.is-stuck { border-bottom-color: var(--line); }
+.back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px 0 12px; border-radius: 99px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+.back svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.top-title { font-size: 14px; font-weight: 600; color: var(--mut); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chap-btn { display: none; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 0; border-radius: 99px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font: 600 14px/1 inherit; font-family: inherit; cursor: pointer; }
+.chap-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* layout */
+.wrap { max-width: calc(var(--wide) + var(--nav) + 2 * var(--pad) + 64px); margin: 0 auto; padding: 0 var(--pad); display: grid; grid-template-columns: var(--nav) minmax(0, 1fr); gap: 64px; }
+.toc { position: sticky; top: 96px; align-self: start; padding-top: 8px; }
+.toc p { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mut); }
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: c; }
+.toc li { counter-increment: c; }
+.toc a { display: flex; gap: 12px; align-items: baseline; padding: 7px 10px; margin-left: -10px; border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--mut); text-decoration: none; transition: color .2s ease, background .2s ease; }
+.toc a::before { content: counter(c, decimal-leading-zero); font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; opacity: .7; }
+.toc a:hover { color: var(--ink); background: rgba(17,17,20,.04); }
+.toc a[aria-current="true"] { color: var(--ink); background: var(--card); box-shadow: inset 0 0 0 1px var(--line); }
+main { min-width: 0; padding-bottom: 120px; }
+
+/* hero */
+.hero { padding: 56px 0 40px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mut); }
+.live { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 99px; background: rgba(22,163,74,.1); color: #15803d; letter-spacing: .04em; text-transform: none; font-size: 12.5px; }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+h1 { margin: 0; max-width: 16ch; font-size: clamp(38px, 6vw, 76px); line-height: 1; font-weight: 800; letter-spacing: -0.045em; }
+.lede { margin: 26px 0 0; max-width: 34ch; font-size: clamp(20px, 2.1vw, 26px); line-height: 1.35; font-weight: 500; letter-spacing: -0.015em; color: var(--ink2); }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px 28px; margin: 40px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); }
+.meta dt { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mut); }
+.meta dd { margin: 4px 0 0; font-size: 15.5px; font-weight: 600; }
+.short { margin: 36px 0 0; padding: 26px 28px; border-radius: 20px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); }
+.short h2 { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mut); }
+.short ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.short li { position: relative; padding-left: 22px; font-size: 16.5px; line-height: 1.55; }
+.short li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+
+/* chapters */
+section.ch { padding: 72px 0 8px; border-top: 1px solid var(--line); margin-top: 64px; }
+.ch-k { margin: 0 0 14px; font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+h2 { margin: 0; max-width: 22ch; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; }
+h3 { margin: 40px 0 0; font-size: 21px; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; }
+.ch p, .ch li { max-width: var(--read); color: var(--ink2); }
+.ch p { margin: 18px 0 0; }
+.ch ul.points { margin: 18px 0 0; padding-left: 20px; }
+.ch ul.points li { margin: 6px 0; }
+.ch strong { color: var(--ink); font-weight: 650; }
+.q { margin: 30px 0 0; max-width: 26ch; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+
+/* figures: dark product frames with the caption beside the evidence */
+figure { margin: 34px 0 0; }
+.frame { position: relative; display: block; width: 100%; padding: clamp(14px, 2.4vw, 28px); border: 0; border-radius: 22px; background: var(--dark); cursor: zoom-in; font: inherit; color: inherit; text-align: left; }
+.frame img { width: 100%; border-radius: 10px; }
+.frame .zoom-hint { position: absolute; right: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 99px; background: rgba(255,255,255,.12); color: #fff; font-size: 12px; font-weight: 600; opacity: 0; transition: opacity .2s ease; }
+.frame:hover .zoom-hint, .frame:focus-visible .zoom-hint { opacity: 1; }
+@media (hover: none) { .frame .zoom-hint { opacity: 1; } }
+figcaption { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; margin-top: 12px; font-size: 14px; line-height: 1.5; color: var(--mut); }
+.tag { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 99px; background: rgba(17,17,20,.06); color: var(--ink2); font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.tag.demo { background: #111114; color: #f6f5f2; }
+.figcap { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; margin: 12px 0 0 !important; font-size: 14px; line-height: 1.5; color: var(--mut); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.side { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.side figure { margin-top: 30px; }
+.side .notes { margin-top: 30px; }
+.notes { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: n; }
+.notes li { counter-increment: n; position: relative; padding: 0 0 0 36px; font-size: 15.5px; line-height: 1.55; color: var(--ink2); }
+.notes li::before { content: counter(n); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.notes b { display: block; color: var(--ink); font-weight: 650; }
+
+/* optional detail */
+details.more { margin: 26px 0 0; max-width: var(--read); border-radius: 16px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); }
+details.more summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; padding: 0 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 650; }
+details.more summary::-webkit-details-marker { display: none; }
+details.more summary::after { content: "+"; font-size: 20px; font-weight: 500; color: var(--mut); transition: transform .25s var(--ease); }
+details.more[open] summary::after { transform: rotate(45deg); }
+details.more .in { padding: 0 20px 20px; }
+details.more .in p:first-child { margin-top: 0; }
+
+/* prototype */
+.proto { margin: 34px 0 0; border-radius: 22px; background: var(--dark); color: #f4f2ed; overflow: hidden; }
+.proto-stage { position: relative; aspect-ratio: 16 / 10; background: #0d0d0f; overflow: hidden; }
+.proto-stage img, .proto-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; object-position: top left; }
+.proto-stage iframe { width: 1440px; height: 900px; transform-origin: 0 0; }
+.proto-cover { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(180deg, rgba(13,13,15,.15), rgba(13,13,15,.7)); }
+.proto-cover button { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border: 0; border-radius: 99px; background: #fff; color: #111; font: 700 15px/1 inherit; font-family: inherit; cursor: pointer; box-shadow: 0 20px 40px -18px rgba(0,0,0,.8); }
+.proto-cover button svg { width: 16px; height: 16px; fill: currentColor; }
+.proto-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 16px 20px; font-size: 14px; color: rgba(244,242,237,.7); }
+.proto-bar a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 99px; background: rgba(255,255,255,.1); color: #fff; font-weight: 600; text-decoration: none; }
+.proto-phone { display: none; }
+
+/* demo brief */
+.demo { margin: 34px 0 0; padding: clamp(18px, 3vw, 32px); border-radius: 22px; background: var(--dark); }
+.mail { max-width: 560px; margin: 0 auto; border-radius: 14px; background: #fff; color: #1d1d22; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.7); }
+.mail-h { padding: 16px 20px; border-bottom: 1px solid #ececef; font-size: 13.5px; color: #6b6b74; }
+.mail-h b { color: #1d1d22; }
+.mail-b { padding: 20px; font-size: 15px; line-height: 1.6; }
+.mail-b h4 { margin: 18px 0 6px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #6b6b74; }
+.mail-b ul { margin: 0; padding-left: 18px; }
+.mail.reply { margin-top: 14px; background: #f3f2ef; }
+
+/* system diagram */
+.flow { margin: 34px 0 0; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 10px; }
+.node { padding: 18px; border-radius: 18px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); }
+.node.dark { background: var(--dark); color: #f4f2ed; box-shadow: none; }
+.node b { display: block; font-size: 15px; }
+.node span { display: block; margin-top: 6px; font-size: 13.5px; line-height: 1.5; color: var(--mut); }
+.node.dark span { color: rgba(244,242,237,.62); }
+.arrow { display: grid; place-items: center; color: var(--mut); font-size: 20px; }
+.loop { grid-column: 1 / -1; padding: 12px 16px; border-radius: 14px; border: 1px dashed rgba(17,17,20,.22); font-size: 14px; color: var(--ink2); text-align: center; }
+
+/* outcomes */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+.box { padding: 24px; border-radius: 20px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); }
+.box h3 { margin: 0 0 10px; font-size: 16px; }
+.box ul { margin: 0; padding-left: 18px; color: var(--ink2); font-size: 15.5px; }
+.box li { margin: 6px 0; }
+.note { margin: 30px 0 0; padding: 16px 20px; border-radius: 14px; background: rgba(17,17,20,.05); font-size: 14.5px; color: var(--ink2); max-width: var(--read); }
+
+/* review-only */
+.rv { margin: 22px 0 0; padding: 14px 18px; border-radius: 12px; border: 2px dashed #c2410c; background: #fff7ed; color: #7c2d12; font-size: 14px; }
+.rv b { color: #7c2d12; }
+
+/* end */
+.next { margin-top: 90px; padding: 36px; border-radius: 26px; background: var(--dark); color: #f4f2ed; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.next p { margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.03em; color: #f4f2ed; max-width: 22ch; }
+.next a { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 99px; background: #fff; color: #111; font-weight: 700; text-decoration: none; }
+
+/* lightbox */
+dialog.lb { width: min(96vw, 1400px); max-height: 94vh; padding: 0; border: 0; border-radius: 16px; background: #0d0d0f; }
+dialog.lb::backdrop { background: rgba(10,10,12,.82); }
+dialog.lb img { width: 100%; height: auto; max-height: 86vh; object-fit: contain; }
+dialog.lb .lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 18px; color: rgba(244,242,237,.75); font-size: 14px; }
+dialog.lb button { min-width: 44px; min-height: 44px; border: 0; border-radius: 99px; background: rgba(255,255,255,.12); color: #fff; font: 600 14px/1 inherit; font-family: inherit; cursor: pointer; padding: 0 16px; }
+
+/* responsive */
+@media (max-width: 1000px) {
+  .wrap { display: block; }
+  .toc { position: fixed; z-index: 30; top: 70px; left: 12px; right: 12px; padding: 16px; border-radius: 18px; background: var(--card); box-shadow: 0 30px 60px -30px rgba(0,0,0,.35), inset 0 0 0 1px var(--line); display: none; max-height: calc(100vh - 90px); overflow: auto; }
+  .toc.open { display: block; }
+  .toc a { padding: 11px 10px; font-size: 15px; }
+  .chap-btn { display: inline-flex; }
+  .top-title { display: none; }
+  .side, .two { grid-template-columns: 1fr; }
+  .side figure, .side .notes { margin-top: 26px; }
+  .flow { grid-template-columns: 1fr; }
+  .arrow { transform: rotate(90deg); padding: 2px 0; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding-top: 36px; }
+  section.ch { padding-top: 52px; margin-top: 44px; }
+  .pair { grid-template-columns: 1fr; }
+  .frame { border-radius: 16px; }
+  .proto-stage { display: none; }
+  .proto-phone { display: block; padding: 14px 14px 0; }
+  .proto-phone img { border-radius: 10px; }
+  .next { padding: 26px; }
+}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <a class="back" href="/vishnuvardhana0402/Vishnu/preview/" aria-label="All work, back to the portfolio home"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg>All work</a>
+  <span class="top-title">Intent Email · Case study</span>
+  <button class="chap-btn" type="button" aria-expanded="false" aria-controls="toc">Chapters<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+</header>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Chapters">
+    <p>Chapters</p>
+    <ol>
+      <li><a href="#context">Context</a></li>
+      <li><a href="#scope">People and my scope</a></li>
+      <li><a href="#question">Design question</a></li>
+      <li><a href="#labels">Categorization</a></li>
+      <li><a href="#style">Writing style</a></li>
+      <li><a href="#drafts">Drafts and follow-ups</a></li>
+      <li><a href="#brief">Morning brief</a></li>
+      <li><a href="#system">System and handoff</a></li>
+      <li><a href="#prototype">Try the prototype</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+
+    <div class="hero">
+      <p class="eyebrow">Case study <span class="live">Live product</span></p>
+      <h1>Intent Email</h1>
+      <p class="lede">How people direct proactive email assistance and stay in control of it.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Product Designer</dd></div>
+        <div><dt>Company</dt><dd>Huemn Interactive (Ve)</dd></div>
+        <div><dt>Works with</dt><dd>Work Gmail and Outlook</dd></div>
+        <div><dt>Surface</dt><dd>Web app plus your inbox</dd></div>
+      </dl>
+      <div class="short">
+        <h2>In short</h2>
+        <ul>
+          <li>Intent Email labels mail, prepares replies and follow-ups, sends a morning brief, and lets people talk to it by replying to an email.</li>
+          <li>The web app is the control surface. The prepared work arrives inside the inbox people already use.</li>
+          <li>The design question: how much should the assistant do on its own, and how does a person stay in charge of it?</li>
+        </ul>
+      </div>
+      <figure>
+        <button class="frame" type="button" data-zoom><img src="img/window-categorization.webp" width="2880" height="1800" alt="The Intent Email web app showing the Categorization page: a Sort my email switch and labels arranged in three lanes, Stays in inbox, Skips inbox and Off." fetchpriority="high"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+        <figcaption><span class="tag">Prototype</span>The control surface, Categorization page. High-fidelity prototype with sample data.</figcaption>
+      </figure>
+    </div>
+
+    <section class="ch" id="context" aria-labelledby="context-h">
+      <p class="ch-k">01 · Context</p>
+      <h2 id="context-h">An assistant that works where the mail already is</h2>
+      <p>Intent Email is Ve's email assistant. It connects to a work Gmail or Outlook account and works inside that inbox: it labels incoming mail, prepares replies and follow-ups, and writes a short morning brief.</p>
+      <p>People don't switch to a new mail client. They set the assistant up and steer it from a web app, and the work it prepares shows up in their own inbox, as labels, drafts in the thread and an email they can reply to.</p>
+      <details class="more">
+        <summary>About this case study</summary>
+        <div class="in">
+          <p><strong>Live product, illustrative prototype.</strong> Intent Email is live. The screens on this page come from my high-fidelity prototype, with sample names and data, not from a customer account. Where a screen is a demo rather than the product, it says so.</p>
+          <p><strong>Not the Ve Browser project.</strong> My earlier Ve Browser case study is a different, unlaunched AI-browser concept. This one is about the email assistant.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="ch" id="scope" aria-labelledby="scope-h">
+      <p class="ch-k">02 · People and my scope</p>
+      <h2 id="scope-h">Who it's for, and what I designed</h2>
+      <p>It's for people who run their work through email on a work Gmail or Outlook account and want help keeping up with it, without handing over control of what gets sent.</p>
+      <p>As Product Designer at Huemn Interactive, I designed Intent Email's experience: how mail is labelled, how replies and follow-ups are drafted, how the assistant learns a writing style, and the settings people use to steer it.</p>
+    </section>
+
+    <section class="ch" id="question" aria-labelledby="question-h">
+      <p class="ch-k">03 · Design question</p>
+      <h2 id="question-h" class="sr">The design question</h2>
+      <p class="q">How do people direct an assistant that acts on their email before they ask, and still stay in control?</p>
+      <p>Every decision below is a version of the same trade-off: let the assistant take work off people's hands, but keep each step visible, reviewable and easy to change.</p>
+    </section>
+
+    <section class="ch" id="labels" aria-labelledby="labels-h">
+      <p class="ch-k">04 · Decision · Categorization</p>
+      <h2 id="labels-h">Labels decide where mail goes, and people decide where labels go</h2>
+      <p>The assistant labels every incoming email. Each label sits in one of three lanes, and the lane decides what happens to that mail.</p>
+      <div class="side">
+        <figure>
+          <button class="frame" type="button" data-zoom><img src="img/labels-lanes.webp" width="1392" height="610" alt="Three lanes of labels. Stays in inbox: To Respond, FYI, Awaiting Reply, Investors. Skips inbox: Comment, Notification, Meeting Update, Actioned, Marketing, Hiring. Off: no labels." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+          <figcaption><span class="tag">Prototype</span>Labels arranged by lane.</figcaption>
+        </figure>
+        <ol class="notes">
+          <li><b>Stays in inbox</b>Labelled mail stays where people look first.</li>
+          <li><b>Skips inbox</b>Mail waits under its label instead of crowding the inbox.</li>
+          <li><b>Off</b>The label isn't applied at all.</li>
+          <li><b>Moving a label</b>Drag it to another lane, or open it for the same options as a menu.</li>
+        </ol>
+      </div>
+      <h3>Creating a label in plain words</h3>
+      <p>A new label is described in a sentence, "Which emails belong here?", rather than built from rules. The dialog previews which lane it lands in and how the tag looks on an email, before it's created.</p>
+      <figure>
+        <button class="frame" type="button" data-zoom><img src="img/create-label.webp" width="1440" height="704" alt="The New label dialog: name Customer escalations, a colour, the description 'Emails from customers about something broken or urgent', a Draft replies for these switch, and a preview of the lane and of the label on a sample inbox row." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+        <figcaption><span class="tag">Prototype</span>Create label, with a live preview of where it goes and how it looks.</figcaption>
+      </figure>
+      <details class="more">
+        <summary>Optional detail: smaller choices on this page</summary>
+        <div class="in">
+          <ul class="points">
+            <li>One main switch, "Sort my email", turns labelling on or off; when it's off, the rest of the page dims and can't be used.</li>
+            <li>"Keep labels I've added myself" leaves a person's own labels untouched.</li>
+            <li>Some moves aren't allowed: an "Actioned" label can't be set to stay in the inbox.</li>
+            <li>A four-step choice sets how strictly marketing mail is filtered.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="ch" id="style" aria-labelledby="style-h">
+      <p class="ch-k">05 · Decision · Writing style</p>
+      <h2 id="style-h">Teach the voice by describing it, and see the result right away</h2>
+      <p>Drafts are only useful if they sound like the person sending them. So the writing style is set in the person's own words, a few one-tap tone choices and a list of rules to always follow, next to a sample reply that rewrites itself as the settings change.</p>
+      <div class="pair">
+        <figure>
+          <button class="frame" type="button" data-zoom><img src="img/style-instructions.webp" width="720" height="668" alt="Writing style settings: a name field, a 'How should it write?' description, tone chips (Be concise and professional and Avoid filler words selected; Use technical terminology and Use British English not selected), and an Always remember list." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+          <figcaption><span class="tag">Prototype</span>Describe the voice, pick tones, add rules.</figcaption>
+        </figure>
+        <figure>
+          <button class="frame" type="button" data-zoom><img src="img/style-reply.webp" width="720" height="498" alt="A sample reply to Priya Raman about a Q3 timeline, written short and plainly because the concise and no-filler tones are on." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+          <figcaption><span class="tag">Prototype</span>The sample reply with "concise" and "no filler" on.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ch" id="drafts" aria-labelledby="drafts-h">
+      <p class="ch-k">06 · Decision · Drafts and follow-ups</p>
+      <h2 id="drafts-h">Prepared, never sent on its own</h2>
+      <p>When a reply is needed, the assistant writes a draft and leaves it in the thread. The person reviews it, changes it and sends it. The same boundary applies to follow-ups: if someone hasn't replied, a follow-up is drafted in the thread for the person to review and send.</p>
+      <div class="side">
+        <div>
+          <figure>
+            <button class="frame" type="button" data-zoom><img src="img/draft-replies.webp" width="1448" height="294" alt="Draft replies settings: Write draft replies is on; Delete unused drafts after 2 days." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+            <figcaption><span class="tag">Prototype</span>Drafts can be switched off, and unused ones clear themselves.</figcaption>
+          </figure>
+          <figure>
+            <button class="frame" type="button" data-zoom><img src="img/followups.webp" width="1448" height="332" alt="Follow-up settings: Follow-up drafts is on, described as a short follow-up drafted in the thread to review and send; Follow up after 3 days." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+            <figcaption><span class="tag">Prototype</span>Follow-ups wait a set number of days, then arrive as drafts.</figcaption>
+          </figure>
+        </div>
+        <ol class="notes">
+          <li><b>Drafts, not sends</b>The person sends. The prototype puts it in one line: "nothing goes out on its own unless you allow it."</li>
+          <li><b>Nothing piles up</b>Drafts that aren't used are deleted after a chosen number of days.</li>
+          <li><b>The person sets the timing</b>How long to wait before a follow-up is a setting, not a guess.</li>
+        </ol>
+      </div>
+      <details class="more">
+        <summary>Optional detail: signatures</summary>
+        <div class="in">
+          <p>Drafts can end with a signature per mailbox, or a default one. With nothing set, the page says so plainly: drafts end without one.</p>
+          <figure>
+            <button class="frame" type="button" data-zoom><img src="img/signatures.webp" width="1448" height="872" alt="Signature settings with one signature set for the mailbox and an empty default signature." loading="lazy"><span class="zoom-hint" aria-hidden="true">Enlarge</span></button>
+            <figcaption><span class="tag">Prototype</span>Signatures, with sample data.</figcaption>
+          </figure>
+        </div>
+      </details>
+    </section>
+
+    <section class="ch" id="brief" aria-labelledby="brief-h">
+      <p class="ch-k">07 · Morning brief and email conversation</p>
+      <h2 id="brief-h">A brief in the inbox, and a conversation by reply</h2>
+      <p>Each morning the assistant sends a short brief. To ask it for something, people reply to that email, so even talking to the assistant happens in the inbox.</p>
+      <div class="demo" role="img" aria-label="Illustrative demo of a morning brief email and a reply to it. Not a production screenshot.">
+        <div class="mail">
+          <div class="mail-h"><b>Your morning brief</b> · from Intent Email</div>
+          <div class="mail-b">Good morning. Here's what's waiting for you.
+            <h4>Needs your reply</h4><ul><li>Example thread · a draft is ready</li></ul>
+            <h4>Follow-ups prepared</h4><ul><li>Example thread · no reply yet</li></ul>
+            <h4>Skipped the inbox</h4><ul><li>Notifications and marketing, under their labels</li></ul>
+          </div>
+        </div>
+        <div class="mail reply">
+          <div class="mail-h"><b>You</b> replied</div>
+          <div class="mail-b">Example: a short request written as an ordinary reply.</div>
+        </div>
+      </div>
+      <p class="figcap"><span class="tag demo">Illustrative demo</span><span>Built for this page with placeholder text. Not a production screenshot.</span></p>
+    </section>
+
+    <section class="ch" id="system" aria-labelledby="system-h">
+      <p class="ch-k">08 · System and handoff</p>
+      <h2 id="system-h">Two surfaces, one assistant</h2>
+      <p>The split is the core of the design: settings and steering live in the web app, and everything the assistant prepares lands in the inbox.</p>
+      <div class="flow" role="img" aria-label="Simplified diagram: the web app sets labels, writing style and boundaries for the assistant; the assistant prepares labels, drafts, follow-ups and the morning brief in the person's Gmail or Outlook inbox; replying to the brief sends instructions back.">
+        <div class="node"><b>Web app</b><span>Labels, writing style, drafting and follow-up settings, signatures</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node dark"><b>Intent Email</b><span>Reads new mail and prepares work</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><b>Your inbox</b><span>Labels, drafts in the thread, follow-ups, the morning brief</span></div>
+        <div class="loop">Replying to the brief sends instructions back to the assistant</div>
+      </div>
+      <p class="figcap"><span class="tag">Simplified diagram</span><span>An illustration of the split, not an architecture drawing.</span></p>
+      <h3>Handoff</h3>
+      <p>I handed the design to engineering as a working high-fidelity prototype with a written spec: colour tokens shared with the rest of Ve, the controls and their states, every dialog, and interaction details like the drag rules between lanes.</p>
+    </section>
+
+    <section class="ch" id="prototype" aria-labelledby="prototype-h">
+      <p class="ch-k">09 · Try it</p>
+      <h2 id="prototype-h">Click through the prototype</h2>
+      <p>The real prototype I designed, with sample data. Drag labels between lanes, create a label, switch to Drafting and open the writing-style dialog. Everything in it is optional; the chapters above tell the whole story without it.</p>
+      <div class="proto">
+        <div class="proto-stage" data-proto>
+          <img src="img/window-categorization.webp" width="2880" height="1800" alt="" loading="lazy">
+          <div class="proto-cover"><button type="button" data-proto-load><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Load the interactive prototype</button></div>
+        </div>
+        <div class="proto-phone"><img src="img/window-categorization.webp" width="2880" height="1800" alt="The Intent Email prototype, Categorization page." loading="lazy"></div>
+        <div class="proto-bar"><span>Designed for desktop. Best opened on a computer.</span><a href="prototype/" target="_blank" rel="noopener">Open full screen ↗</a></div>
+      </div>
+    </section>
+
+
+    <section class="ch" id="outcomes" aria-labelledby="outcomes-h">
+      <p class="ch-k">Outcomes</p>
+      <h2 id="outcomes-h">What shipped, and what isn't measured yet</h2>
+      <div class="two">
+        <div class="box"><h3>Shipped</h3><ul>
+          <li>Intent Email is live, on work Gmail and Outlook.</li>
+          <li>Labelling with three lanes and labels described in plain words.</li>
+          <li>Drafted replies and follow-ups that wait in the thread for the person.</li>
+          <li>A writing style set in the person's own words.</li>
+          <li>A morning brief, and conversation by replying to it.</li>
+        </ul></div>
+        <div class="box"><h3>Not measured yet</h3><ul>
+          <li>Time saved.</li>
+          <li>How often drafts are sent as written, edited or discarded.</li>
+          <li>How accurate the labels are.</li>
+        </ul></div>
+      </div>
+      <p class="note">No results are claimed on this page. Numbers will be added only when they come from real measurement.</p>
+    </section>
+
+
+    <div class="next">
+      <p>Want the full walkthrough?</p>
+      <a href="mailto:vishnuvardhana0402@gmail.com">Say hello ↗</a>
+    </div>
+  </main>
+</div>
+
+<dialog class="lb" aria-label="Enlarged image">
+  <div class="lb-bar"><span data-lb-cap></span><button type="button" data-lb-close>Close</button></div>
+  <img alt="">
+</dialog>
+
+<script>
+(function () {
+  var top = document.getElementById("top");
+  addEventListener("scroll", function () { top.classList.toggle("is-stuck", scrollY > 8); }, { passive: true });
+
+  // chapters: a menu on small screens; the current chapter is marked as you read
+  var toc = document.getElementById("toc"), btn = document.querySelector(".chap-btn");
+  var setOpen = function (on) { toc.classList.toggle("open", on); btn.setAttribute("aria-expanded", String(on)); if (on) { var a = toc.querySelector("a"); if (a) a.focus(); } };
+  btn.addEventListener("click", function () { setOpen(!toc.classList.contains("open")); });
+  toc.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && toc.classList.contains("open")) { setOpen(false); btn.focus(); } });
+  var links = [].slice.call(toc.querySelectorAll("a")), secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  var mark = 0, current = function () { mark = 0;
+    var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * 0.35) cur = i; });
+    links.forEach(function (a, i) { a.setAttribute("aria-current", i === cur ? "true" : "false"); }); };
+  addEventListener("scroll", function () { if (!mark) mark = requestAnimationFrame(current); }, { passive: true }); current();
+
+  // enlarge any product image
+  var lb = document.querySelector("dialog.lb"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("[data-lb-cap]"), opener = null;
+  document.querySelectorAll("[data-zoom]").forEach(function (b) {
+    var img = b.querySelector("img"), cap = b.parentElement.querySelector("figcaption");
+    b.setAttribute("aria-label", "Enlarge: " + (img.getAttribute("alt") || "image"));
+    b.addEventListener("click", function () { opener = b; lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; lbCap.textContent = cap ? cap.textContent : ""; lb.showModal(); });
+  });
+  lb.querySelector("[data-lb-close]").addEventListener("click", function () { lb.close(); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+  lb.addEventListener("close", function () { if (opener) opener.focus(); });
+
+  // the prototype loads only when asked (it brings its own scripts), scaled to fit the frame
+  var stage = document.querySelector("[data-proto]");
+  if (stage) stage.querySelector("[data-proto-load]").addEventListener("click", function () {
+    var f = document.createElement("iframe"); f.src = "prototype/"; f.title = "Intent Email interactive prototype"; f.setAttribute("loading", "eager");
+    stage.innerHTML = ""; stage.appendChild(f);
+    var fit = function () { f.style.transform = "scale(" + (stage.clientWidth / 1440) + ")"; };
+    fit(); addEventListener("resize", fit); f.focus();
+  });
+})();
+</script>
+</body>
+</html>

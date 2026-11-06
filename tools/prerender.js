@@ -80,12 +80,13 @@ function page(r, blocks, depth) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400..700&display=swap">
 <title>${esc(r.title)}</title>
 ${meta(r)}
 <script>/* visitors with JavaScript get the full, animated page at once */
 (function () { var b = location.pathname.replace(/index\\.html$/, "").replace(/(case\\/[^/]+|more)\\/?$/, ""), h = location.hash;
   location.replace(b + (/^#\\//.test(h) ? h : "${r.hash}")); })();</script>
-<style>body{margin:0;background:#0d0d11;color:#e9e7e2;font:17px/1.6 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:48px 20px 80px}
+<style>body{margin:0;background:#0d0d11;color:#e9e7e2;font:17px/1.6 'Google Sans',system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:48px 20px 80px}
 a{color:#fff}h1{font-size:2.2em;line-height:1.15}h2{margin-top:2em}blockquote{margin:1.2em 0;font-size:1.2em;color:#fff}header,footer{font-size:15px;opacity:.85}</style>
 </head>
 <body>
