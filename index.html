@@ -226,7 +226,7 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     });
     if (typeof IntersectionObserver !== "undefined") { g.vis = false; new IntersectionObserver(es => { g.vis = es[es.length - 1].isIntersecting; }).observe(btn); } else g.vis = true;
     // a faster step with a short fade per pixel: the chevrons glide instead of jumping; still for reduced motion
-    if (!timer) timer = setInterval(() => { if (!document.hidden) { f = (f + 1) % FRAMES.length; grids.forEach(g => { if (g.vis) paint(g); }); } }, 140);
+    if (!timer) timer = setInterval(() => { if (!document.hidden && !window.__ypScrolling) { f = (f + 1) % FRAMES.length; grids.forEach(g => { if (g.vis) paint(g); }); } }, 140);
   };
   window.__ypStartBuild = init;   // for buttons added later (the header builds its own)
   document.querySelectorAll(".start-build").forEach(init);
@@ -430,7 +430,7 @@ void main() {
     const buf = gl2.createBuffer(); gl2.bindBuffer(gl2.ARRAY_BUFFER, buf); gl2.bufferData(gl2.ARRAY_BUFFER, new Float32Array([-1, 1, -1, -1, 1, 1, 1, -1]), gl2.STATIC_DRAW);
     const pl = gl2.getAttribLocation(pr, "p"); gl2.enableVertexAttribArray(pl); gl2.vertexAttribPointer(pl, 2, gl2.FLOAT, false, 0, 0);
     const uR = gl2.getUniformLocation(pr, "R"), uM = gl2.getUniformLocation(pr, "M"), uK = gl2.getUniformLocation(pr, "K"), uP = gl2.getUniformLocation(pr, "paper"), uD = gl2.getUniformLocation(pr, "dark"), uT = gl2.getUniformLocation(pr, "T"), uPtr = gl2.getUniformLocation(pr, "P"), uWv = gl2.getUniformLocation(pr, "Wv");
-    drawGrid = () => { const dpr = Math.min(1.5, devicePixelRatio || 1), W = Math.round(innerWidth * dpr), H = Math.round(window.__SH() * dpr);
+    drawGrid = () => { const dpr = Math.min(innerWidth <= 760 ? 1 : 1.5, devicePixelRatio || 1), W = Math.round(innerWidth * dpr), H = Math.round(window.__SH() * dpr);
       if (dots.width !== W || dots.height !== H) { dots.width = W; dots.height = H; } gl2.viewport(0, 0, W, H);
       const dark = html.classList.contains("dark");
       // tile size: an exact number of rows fills the height (about 100 px each, about 72 px on phones)
@@ -460,10 +460,11 @@ void main() {
   if (matchMedia("(hover: none)").matches) {
     // one slow, continuous path (two gentle loops layered, so it never quite repeats): the light drifts across the
     // hero like a hand gliding a mouse in easy curves, never a jump
-    let raf = 0, t0 = 0;
+    let raf = 0, t0 = 0, skip = false;
     const drift = now => {
       raf = 0;
       if (document.hidden || scrollY > innerHeight * 0.9) { t0 = 0; return; }
+      if ((skip = !skip) || window.__ypScrolling) { raf = requestAnimationFrame(drift); return; }   // a slow drift: every other frame is plenty
       if (!t0) t0 = now - 4000;
       const t = (now - t0) / 1000, W = innerWidth, H = innerHeight;
       const x = 0.5 + 0.30 * Math.sin(t * 0.42) + 0.07 * Math.sin(t * 0.97 + 1.1);
@@ -605,7 +606,7 @@ void main() {
       const p = Math.max(0, Math.min(1, (H * 0.9 - top) / (H * 0.4 + (bot - top) / 2)));   // fully lit as the block reaches the centre
       if (Math.abs(p - last) < 0.0005) return; last = p;
       const edge = p * (N + SOFT);
-      units.forEach((u, i) => { const k = Math.max(0, Math.min(1, (edge - i) / SOFT)), o = (DIM + (1 - DIM) * k).toFixed(3);
+      units.forEach((u, i) => { const k = Math.max(0, Math.min(1, (edge - i) / SOFT)), o = (DIM + (1 - DIM) * k).toFixed(2);
         if (u.__o !== o) { u.__o = o; u.style.opacity = o; } }); };
     addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(draw); }, { passive: true });
     addEventListener("resize", () => { last = -1; draw(); }); draw();
@@ -11184,14 +11185,18 @@ addEventListener("hashchange", () => { const r = routeOf(); if (r) { go(r); if (
   };
 
   let speed = SPEED_HOVER;
+  const PHONE = innerWidth <= 760; let last = 0;
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, PHONE ? 1 : 2);   // phones: the stars are soft anyway
     const w = canvas.clientWidth * dpr, h = canvas.clientHeight * dpr;
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
     gl.viewport(0, 0, w, h);
     gl.uniform2f(loc.u_resolution, w, h);
   }
   function frame(now) {
+    // the stars hold still while the page is moving; on phones they run at 30 frames a second
+    if (window.__ypScrolling || (PHONE && now - last < 32)) { raf = requestAnimationFrame(frame); return; }
+    last = now;
     resize();
     gl.uniform1f(loc.u_time, (now - start) / 1000);
     gl.uniform1f(loc.u_speed, speed);
@@ -21740,6 +21745,32 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   };
   document.addEventListener("touchend", home, { capture: true, passive: false });
   document.addEventListener("click", home, true);
+})();
+</script>
+<script id="smooth">
+/* Smooth scrolling: while the page moves, decorative loops hold still; looping animations that are off screen are
+   paused until they come back; the project pictures are decoded ahead, in idle time, so none is decoded mid-scroll */
+(function () {
+  var t = 0;
+  addEventListener("scroll", function () { window.__ypScrolling = true; clearTimeout(t); t = setTimeout(function () { window.__ypScrolling = false; }, 160); }, { passive: true });
+  if (typeof IntersectionObserver !== "undefined" && document.getAnimations) {
+    var seen = new WeakSet();
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.getAnimations().forEach(function (a) { if (a.effect && a.effect.getTiming().iterations === Infinity) { if (e.isIntersecting) a.play(); else a.pause(); } }); });
+    });
+    var scan = function () { document.getAnimations().forEach(function (a) { var el = a.effect && a.effect.target;
+      if (el && a.effect.getTiming().iterations === Infinity && !seen.has(el)) { seen.add(el); io.observe(el); } }); };
+    addEventListener("load", function () { scan(); setTimeout(scan, 2500); });
+    addEventListener("hashchange", function () { setTimeout(scan, 1200); });
+  }
+  var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 200); };
+  addEventListener("load", function () { setTimeout(function () {
+    var urls = [];
+    document.querySelectorAll("img.hcd").forEach(function (i) { if (i.loading === "lazy") i.loading = "eager"; urls.push(i.currentSrc || i.src); });
+    document.querySelectorAll("[data-case-img], [data-case-bg-img]").forEach(function (e) { var m = /url\(["']?([^"')]+)/.exec(e.getAttribute("style") || ""); if (m) urls.push(m[1]); });
+    var next = function () { var u = urls.shift(); if (!u) return; var im = new Image(); im.src = u; (im.decode ? im.decode() : Promise.resolve()).catch(function () {}).then(function () { idle(next); }); };
+    idle(next);
+  }, 1500); });
 })();
 </script>
 </body></html>
