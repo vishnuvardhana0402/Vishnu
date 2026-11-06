@@ -54,7 +54,7 @@ async function words(page, base, r) {
   return page.evaluate(() => {
     const host = document.getElementById('yp-page'), out = [], seen = new Set();
     const clean = t => t.replace(/\s+/g, ' ').trim().replace(/(\S+?)\1{2,}/g, '$1');
-    host.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,figcaption,[data-case]').forEach(e => {
+    host.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,figcaption,[data-case],.tt-sr').forEach(e => {
       if (e.closest('#site-foot,#btt,footer.vnx,nav,[aria-hidden="true"]')) return;
       if (e.matches('[data-case]')) {   // a project card: its name as the link, its line beneath
         const rows = e.querySelectorAll('[data-case-text]'), name = clean((e.querySelector('.hcw') || {}).textContent || '');
@@ -65,6 +65,7 @@ async function words(page, base, r) {
       const t = clean(e.getAttribute('aria-label') || e.innerText || e.textContent || '');
       const tag = e.tagName.toLowerCase();
       if (!t || seen.has(t)) return;
+      if (e.classList.contains('tt-sr')) { seen.add(t); out.push(['p', t]); return; }   // a stat, e.g. "17 modules"
       if (!/^h\d$/.test(tag) && t.split(' ').length < 4) return;   // stray interface labels
       seen.add(t); out.push([tag, t]);
     });
