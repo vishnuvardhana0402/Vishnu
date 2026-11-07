@@ -64,6 +64,8 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -738,7 +740,7 @@ void main() {
   // phones: the name alone, sized to the width and standing still above the head, so it reads in full (the line that
   // slides across the screen only ever showed pieces of it there)
   const TEXT = PHONE ? "Vishnu|vardhan" : "Vishnuvardhan - Product Designer";   // "|": a line break (phones, two lines)
-  const fsOf = () => { const W = innerWidth, H = innerHeight, base = Math.min(0.3 * H, 0.36 * W); if (!PHONE) return base;
+  const fsOf = () => { const W = innerWidth, H = PHONE ? Math.max(innerHeight, (window.screen && screen.height) || 0) : innerHeight, base = Math.min(0.3 * H, 0.36 * W); if (!PHONE) return base;
     const m = document.createElement("canvas").getContext("2d"); m.font = "800 100px 'Google Sans', system-ui, sans-serif"; if ("letterSpacing" in m) m.letterSpacing = "-4px";
     const w = Math.max.apply(null, TEXT.toUpperCase().split("|").map(t => m.measureText(t).width));
     return Math.min(base, 100 * W * 0.86 / Math.max(1, w)); };
@@ -889,15 +891,18 @@ void main() {
   if (PHONE) {
     const nm = document.createElement("div"); nm.className = "hx-mname"; nm.setAttribute("aria-hidden", "true");
     nm.innerHTML = TEXT.toUpperCase().split("|").map(t => '<span class="l">' + [...t].map((c, i) => '<i style="--i:' + i + '">' + c + '</i>').join("") + '</span>').join("");
-    const place = () => { const W = innerWidth, H = innerHeight, fs = fsOf(), ph = Math.min(0.7 * H, 1.25 * W);
-      nm.style.fontSize = fs + "px"; nm.style.top = Math.max(84, H - ph - fs * 1.32) + "px"; };
+    // anchored like the photo, to the bottom of the hero, and sized from the width only: the browser's toolbar
+    // growing or shrinking as you scroll changes the screen's height, never where the name stands
+    let lastW = 0;
+    const place = () => { const W = innerWidth; if (W === lastW) return; lastW = W; const fs = fsOf();
+      nm.style.fontSize = fs + "px"; nm.style.top = "auto"; nm.style.bottom = "calc(min(70vh, 125vw) - " + (fs * 0.62).toFixed(1) + "px)"; };
     const stage = document.createElement("div"); stage.className = "hx-stage";
     const box = document.createElement("div"); box.className = "hx-pinbox"; stage.append(box);
     [document.querySelector(".hx-dots"), document.querySelector(".hx-melt"), hx.h1, nm, photo, document.querySelector(".hx-sign"), hint, avail]
       .forEach(el => { if (el) box.append(el); });
     document.body.prepend(stage);
     html.classList.add("hx-fish-on", "hx-mname-on"); hx.h1.setAttribute("aria-label", TEXT.replace("|", ""));
-    place(); addEventListener("resize", place); if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    place(); addEventListener("resize", place); if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { lastW = 0; place(); });
     const reveal = () => nm.classList.add("in");
     window.__hxIntroName = t => { if (!(t > 1e14)) reveal(); }; setTimeout(reveal, 6500);
     return;
