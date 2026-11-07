@@ -48,6 +48,7 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -4668,8 +4669,8 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
 <section class="ie-show ie-dark" aria-label="The Intent Email web app">
   <div class="ie-show-in ie-r">
     <figure class="ie-show-f">
-      <button type="button" class="ie-zoom ie-zoom--flat" data-ie-zoom=""><img class="on" data-mode="dark" src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/web-app.webp" width="2800" height="1720" alt="The Intent Email web app in dark mode, Categorization page: a Sort my email switch and labels in three lanes, Stays in inbox, Skips inbox and Off. Sample data." loading="lazy" decoding="async"><img data-mode="light" src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/web-app-light.webp" width="2800" height="1720" alt="The Intent Email web app in light mode, Categorization page. Sample data." loading="lazy" decoding="async"></button></figure>
-    <div class="ie-mode" role="group" aria-label="Show the web app in dark or light mode"><span class="ie-mode-ind" aria-hidden="true"></span><button type="button" data-ie-mode="dark" aria-pressed="true">Dark</button><button type="button" data-ie-mode="light" aria-pressed="false">Light</button></div>
+      <button type="button" class="ie-zoom ie-zoom--flat" data-ie-zoom=""><img data-mode="dark" src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/web-app.webp" width="2800" height="1720" alt="The Intent Email web app in dark mode, Categorization page: a Sort my email switch and labels in three lanes, Stays in inbox, Skips inbox and Off. Sample data." loading="lazy" decoding="async"><img class="on" data-mode="light" src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/web-app-light.webp" width="2800" height="1720" alt="The Intent Email web app in light mode, Categorization page. Sample data." loading="lazy" decoding="async"></button></figure>
+    <div class="ie-mode" role="group" aria-label="Show the web app in light or dark mode"><span class="ie-mode-ind" aria-hidden="true"></span><button type="button" data-ie-mode="light" aria-pressed="true">Light</button><button type="button" data-ie-mode="dark" aria-pressed="false">Dark</button></div>
     <p class="ie-cap ie-show-cap"><span class="ie-tag">Prototype</span>Intent Email is live. The screens on this page are from my high-fidelity prototype, with sample data; the inbox and brief are illustrative demos, not a customer account.</p>
   </div>
 </section>
@@ -4847,7 +4848,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
   <div class="ie-wrap">
     <header class="ie-head"><p class="ie-k ie-r"><b>10</b>The prototype</p><h2 class="ie-title" id="ie-proto-t" data-ie-split="">Click through <br>the real prototype.</h2>
       <p class="ie-lead ie-r">The high-fidelity prototype I handed to engineering, with sample data. Drag a label to another lane, create a label, switch to Drafting, open the writing style, or the Settings window. It all works.</p></header>
-    <figure class="ie-proto ie-r"><div class="ie-proto-in" data-ie-live=""><img src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/window-categorization.webp" width="2880" height="1800" alt="The Intent Email prototype, Categorization page, with sample data." loading="lazy" decoding="async"></div></figure>
+    <figure class="ie-proto ie-r"><div class="ie-proto-in" data-ie-live=""><img src="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/img/window-light.webp" width="2880" height="1800" alt="The Intent Email prototype, Categorization page, with sample data." loading="lazy" decoding="async"></div></figure>
     <p class="ie-cap ie-r"><a class="ie-open" href="/vishnuvardhana0402/Vishnu/preview-2/case/intent-email/prototype/" target="_blank" rel="noopener">Open full screen &#8599;</a><span>Built for a computer screen. On a phone, open it full screen.</span></p>
   </div>
 </section>
@@ -11015,14 +11016,14 @@ document.querySelectorAll(".start-build").forEach(window.__ypStartBuild);
 .ie-show-cap { max-width: 880px; }
 /* dark and light: both screens sit in one place and crossfade; a small switch under them */
 .ie-show-f .ie-zoom { position: relative; display: block; }
-.ie-show-f .ie-zoom img[data-mode="light"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.ie-show-f .ie-zoom img[data-mode="dark"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 .ie-show-f .ie-zoom img { transition: opacity var(--t) var(--ease); }
 .ie-show-f .ie-zoom img:not(.on) { opacity: 0; }
 .ie-mode { position: relative; display: flex; width: max-content; margin: 28px auto 0; padding: 4px; border-radius: 999px; background: var(--d1); box-shadow: inset 0 0 0 1px var(--dl); isolation: isolate; }
 .ie-mode button { position: relative; z-index: 1; min-width: 92px; height: 40px; padding: 0 18px; border: 0; border-radius: 999px; background: none; color: var(--on2); font-size: 14px; font-weight: 600; cursor: pointer; transition: color var(--t) var(--ease); }
 .ie-mode button[aria-pressed="true"] { color: #111114; }
 .ie-mode-ind { position: absolute; z-index: 0; left: 4px; top: 4px; width: calc(50% - 4px); height: 40px; border-radius: 999px; background: #fff; transition: transform var(--t) var(--ease); }
-.ie-mode.is-light .ie-mode-ind { transform: translateX(100%); }
+.ie-mode.is-dark .ie-mode-ind { transform: translateX(100%); }
 
 /* context: three facts on hairlines */
 .ie-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
@@ -11395,9 +11396,9 @@ document.querySelectorAll(".start-build").forEach(window.__ypStartBuild);
     all(".ie-mode").forEach(function (g) {
       var f = g.previousElementSibling, imgs = f ? Array.prototype.slice.call(f.querySelectorAll("img[data-mode]")) : [];
       g.addEventListener("click", function (e) { var b = e.target.closest("button[data-ie-mode]"); if (!b) return; var m = b.getAttribute("data-ie-mode");
-        imgs.forEach(function (im) { im.classList.toggle("on", im.getAttribute("data-mode") === m); if (m === "light") im.loading = "eager"; });
+        imgs.forEach(function (im) { im.classList.toggle("on", im.getAttribute("data-mode") === m); if (m === "dark") im.loading = "eager"; });
         Array.prototype.forEach.call(g.querySelectorAll("button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-        g.classList.toggle("is-light", m === "light"); });
+        g.classList.toggle("is-dark", m === "dark"); });
     });
 
     // Let's Talk: the portfolio's moving dot-arrows
