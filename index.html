@@ -58,6 +58,9 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -239,16 +242,33 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
 <link rel="preload" as="image" href="/vishnuvardhana0402/Vishnu/preview-2/assets/home/ve-journey.webp">
 <link rel="preload" as="image" href="/vishnuvardhana0402/Vishnu/preview-2/assets/core/journey-vec.webp">
 <style id="hx-mname-css">
-/* phones: the name, flat and still, behind the photo; each letter rises in once as the page lands */
+/* phones: the name, flat and still, behind the photo; it arrives once, all of it together: rising out of a soft blur
+   while its letters settle closer */
 .hx-mname { position: absolute; left: 0; right: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; margin: 0;
-  font: 800 1em/0.9 'Google Sans', system-ui, sans-serif; letter-spacing: -0.04em; color: currentColor; text-transform: uppercase; pointer-events: none; }
-.hx-mname .l { display: block; overflow: hidden; padding: 0.04em 0.06em; white-space: nowrap; }
-.hx-mname i { display: inline-block; font-style: normal; opacity: 0; transform: translateY(0.9em); filter: blur(6px);
-  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.16,1,.3,1), filter .7s ease; transition-delay: calc(var(--i) * 45ms); }
-.hx-mname .l + .l i { transition-delay: calc(var(--i) * 45ms + 160ms); }
-.hx-mname.in i { opacity: 1; transform: none; filter: none; }
+  font: 800 1em/0.9 'Google Sans', system-ui, sans-serif; letter-spacing: 0.02em; color: currentColor; text-transform: uppercase; pointer-events: none;
+  opacity: 0; transform: translateY(0.35em) scale(0.96); filter: blur(14px);
+  transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1.4s cubic-bezier(.16,1,.3,1), filter 1.1s cubic-bezier(.22,1,.36,1), letter-spacing 1.4s cubic-bezier(.16,1,.3,1); }
+.hx-mname .l { display: block; padding: 0.04em 0.06em; white-space: nowrap; }
+.hx-mname i { font-style: normal; }
+.hx-mname.in { opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; }
 html.hx-mname-on .hx-photo { position: relative; z-index: 1; }
-@media (prefers-reduced-motion: reduce) { .hx-mname i { transition: none; opacity: 1; transform: none; filter: none; } }
+@media (prefers-reduced-motion: reduce) { .hx-mname { transition: none; opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; } }
+</style>
+<style id="hx-ph-css">
+/* phones: the whole hero (the top buttons, the name, the photo, the line and "Open to new work") arrives at once,
+   all with the same movement: fading up out of a soft blur, together */
+@media (max-width: 760px) {
+  html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-top, html.hx-intro.hx-ph:not(.hx-all) .hx-photo, html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-sign,
+  html.hx-intro.hx-ph:not(.hx-all) .hx-avail, html.hx-intro.hx-ph:not(.hx-all) .hx-hint { opacity: 0 !important; translate: 0 22px !important; filter: blur(12px) !important; }
+  html.hx-intro.hx-ph body.hero .hx-top { visibility: visible !important; }
+  html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint {
+    transition: opacity 1.1s cubic-bezier(.22,1,.36,1), translate 1.4s cubic-bezier(.16,1,.3,1), filter 1.1s cubic-bezier(.22,1,.36,1), scale 1.4s cubic-bezier(.16,1,.3,1) !important;
+    transition-delay: 0s !important; }
+  html.hx-ph .hx-mname { transition-delay: 0s !important; }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint { transition: none !important; }
+}
 </style>
 </head>
 <body class="hero">
@@ -873,7 +893,7 @@ void main() {
     html.classList.add("hx-fish-on", "hx-mname-on"); hx.h1.setAttribute("aria-label", TEXT.replace("|", ""));
     place(); addEventListener("resize", place); if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
     const reveal = () => nm.classList.add("in");
-    window.__hxIntroName = () => setTimeout(reveal, 120); setTimeout(reveal, 2600);
+    window.__hxIntroName = t => { if (!(t > 1e14)) reveal(); }; setTimeout(reveal, 6500);
     return;
   }
   const back = lens(-0.3, false), front = lens(0.45, true), gl = back && front;
@@ -951,10 +971,14 @@ void main() {
     if (window.__queueDots) window.__queueDots();
     if (k < 1) raf = requestAnimationFrame(wave); };
   const at = (ms, f) => timers.push(setTimeout(f, ms));
+  // phones: everything in the hero arrives together, in one movement (see #hx-ph-css)
+  const PH = innerWidth <= 760; if (PH) html.classList.add("hx-ph");
   const start = () => { if (started || done) return; started = true;
     // two frames first, so the hidden state is on screen and every step transitions from it
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return;
-      T0 = performance.now();
+      if (PH) { T0 = performance.now(); html.classList.add("hx-s1", "hx-s2", "hx-s3", "hx-s4", "hx-all"); raf = requestAnimationFrame(wave);
+      if (window.__hxIntroName) window.__hxIntroName(performance.now()); at(1800, finish); return; }
+    T0 = performance.now();
       html.classList.add("hx-s1"); raf = requestAnimationFrame(wave);
       at(350, () => { html.classList.add("hx-s2"); if (window.__hxIntroName) window.__hxIntroName(performance.now() + 250); });
       at(1550, () => html.classList.add("hx-s3"));
