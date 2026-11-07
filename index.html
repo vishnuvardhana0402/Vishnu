@@ -24,8 +24,17 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
    shows the real path (/case/ve-browser/), which is also a prerendered page of its own for link previews and
    crawlers. Old #/ links keep working and are rewritten to their paths. */
 (function () {
-  var R = { "#/": "", "#/case": "case/ve-browser/", "#/more": "more/" };
+  var R = { "#/": "", "#/case": "case/ve-browser/", "#/intent": "case/intent-email/", "#/more": "more/" };
   var T = { "#/": "Vishnuvardhana Chary Sriramoju | Product Designer", "#/case": "Ve Browser | AI browser case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -2660,9 +2669,9 @@ void main() {
 
   /* case study pages replace the home page while they are open */
   #yp-page { display: none; position: relative; z-index: 30; }
-  html[data-yp-page="case"] #yp-page, html[data-yp-page="dashboard"] #yp-page, html[data-yp-page="more"] #yp-page, html[data-yp-page="apps"] #yp-page, html[data-yp-page="web"] #yp-page { display: block; }
-  html[data-yp-page="case"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="dashboard"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="more"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="apps"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="web"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot) { display: none !important; }   /* the cursor stays */
-  html[data-yp-page="case"] body.hero::after, html[data-yp-page="dashboard"] body.hero::after, html[data-yp-page="more"] body.hero::after, html[data-yp-page="apps"] body.hero::after, html[data-yp-page="web"] body.hero::after { display: none; }
+  html[data-yp-page="case"] #yp-page, html[data-yp-page="dashboard"] #yp-page, html[data-yp-page="intent"] #yp-page, html[data-yp-page="more"] #yp-page, html[data-yp-page="apps"] #yp-page, html[data-yp-page="web"] #yp-page { display: block; }
+  html[data-yp-page="case"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="dashboard"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="intent"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="more"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="apps"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot), html[data-yp-page="web"] body > :not(#yp-page):not(.cursor-ring):not(.cursor-dot) { display: none !important; }   /* the cursor stays */
+  html[data-yp-page="case"] body.hero::after, html[data-yp-page="dashboard"] body.hero::after, html[data-yp-page="intent"] body.hero::after, html[data-yp-page="more"] body.hero::after, html[data-yp-page="apps"] body.hero::after, html[data-yp-page="web"] body.hero::after { display: none; }
 </style>
 <style id="yp-sb">
   /* "Could be yours": the label sits in the middle of the space right of the circle, the same gap on both sides as
@@ -4637,6 +4646,220 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
 
 
 
+<!--intent:tpl-->
+<template id="yp-page-intent"><div class="ie" data-ie="">
+
+<header class="ie-nav"><div class="ie-nav-in">
+  <a href="#/" data-go-back="" class="ie-btn ie-btn--back" aria-label="All work"><i class="tile" aria-hidden="true"></i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg><span>All work</span></a>
+  <nav class="ie-nav-ch" aria-label="Chapters"><span class="ie-nav-ind" aria-hidden="true"></span><a href="#ie-context">Context</a><a href="#ie-people">People</a><a href="#ie-question">Question</a><a href="#ie-labels">Categorization</a><a href="#ie-style">Writing style</a><a href="#ie-drafts">Drafts</a><a href="#ie-brief">Morning brief</a><a href="#ie-system">System</a><a href="#ie-outcomes">Outcomes</a></nav>
+  <a class="ie-btn ie-btn--talk" href="mailto:vishnuvardhana0402@gmail.com?subject=Hello%20Vishnu" aria-label="Let&rsquo;s Talk: email Vishnu"><i class="tile" aria-hidden="true"></i><svg viewBox="0 0 30 15" aria-hidden="true"></svg><span>Let&rsquo;s Talk</span></a>
+</div></header>
+
+<main>
+<!-- Hero -->
+<section class="ie-hero ie-dark" aria-labelledby="ie-h1">
+  <div class="ie-hero-art" aria-hidden="true"><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/hero-composition.jpg" width="1800" height="1440" alt="" decoding="async" fetchpriority="high"></div>
+  <div class="ie-wrap ie-hero-in">
+    <p class="ie-eyebrow ie-r">Case study 02 &middot; Ve &middot; Intent Email</p>
+    <h1 class="ie-display" id="ie-h1" data-ie-split="">Proactive email help <br>that leaves you in control.</h1>
+    <p class="ie-hero-sum ie-r">Intent Email labels mail, prepares replies and follow-ups, sends a morning brief, and takes requests by reply. It works inside the work Gmail or Outlook inbox people already use; a web app is where they steer it.</p>
+    <dl class="ie-meta ie-r">
+      <div><dt>Role</dt><dd>Product Designer, Huemn Interactive</dd></div>
+      <div><dt>Platform</dt><dd>Web app with work Gmail and Outlook</dd></div>
+      <div><dt>Status</dt><dd><i class="ie-live-dot" aria-hidden="true"></i>Live product</dd></div>
+    </dl>
+    <p class="ie-hero-cap ie-r">Intent Email is live. The screens on this page are from my high-fidelity prototype, with sample data; the inbox and brief are illustrative demos, not a customer account.</p>
+  </div>
+</section>
+
+<!-- 01 Context -->
+<section class="ie-ch ie-dark" id="ie-context" aria-labelledby="ie-context-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>01</b>Context</p><h2 class="ie-title" id="ie-context-t" data-ie-split="">An assistant that works <br>where the mail already is.</h2>
+      <p class="ie-lead ie-r">Ve&rsquo;s email assistant connects to a work Gmail or Outlook account. People don&rsquo;t switch to a new mail client: they steer it from a web app, and the work it prepares shows up in their own inbox.</p></header>
+    <ul class="ie-facts ie-r">
+      <li><i class="ie-dot ie-dot--live" aria-hidden="true"></i><b>A live product</b><span>Intent Email is live on work Gmail and Outlook accounts.</span></li>
+      <li><i class="ie-dot" aria-hidden="true"></i><b>An illustrative prototype</b><span>The screens here are from my high-fidelity prototype, with sample names and data. Demos and diagrams say so.</span></li>
+      <li><i class="ie-dot ie-dot--off" aria-hidden="true"></i><b>Not the Ve Browser project</b><span>My Ve Browser case study is an earlier AI-browser concept that was not launched. This one is the email assistant.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 People and my scope -->
+<section class="ie-ch ie-dark" id="ie-people" aria-labelledby="ie-people-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>02</b>People and my scope</p><h2 class="ie-title" id="ie-people-t" data-ie-split="">Help keeping up, <br>without handing over what gets sent.</h2></header>
+    <div class="ie-cols ie-r">
+      <div><p class="ie-label">Who it&rsquo;s for</p><p>People who run their work through email on a work Gmail or Outlook account and want help keeping up, while every message that leaves still goes out on their say-so.</p></div>
+      <div><p class="ie-label">My part</p><p>As Product Designer at Huemn Interactive, I designed how mail is labelled, how replies and follow-ups are drafted, how the assistant learns a writing style, and the settings to steer it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 The design question -->
+<section class="ie-ch ie-dark ie-ch--q" id="ie-question" aria-labelledby="ie-question-t">
+  <div class="ie-wrap">
+    <p class="ie-k ie-k--c ie-r"><b>03</b>The design question</p>
+    <h2 class="ie-statement" id="ie-question-t" data-ie-split="">How do people direct an assistant that acts before they ask, and <em>stay in control</em>?</h2>
+    <p class="ie-lead ie-lead--c ie-r">Every decision below is a version of the same trade-off: let the assistant take work off people&rsquo;s hands, but keep each step</p>
+    <ol class="ie-principles ie-r">
+      <li><b>Visible</b><span>Every action leaves something to see: a label, a draft, a brief.</span></li>
+      <li><b>Reviewable</b><span>Nothing goes out until the person sends it.</span></li>
+      <li><b>Easy to change</b><span>A drag, a switch or a sentence changes what it does.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 04 Decision: categorization -->
+<section class="ie-ch ie-light ie-sheet" id="ie-labels" aria-labelledby="ie-labels-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>04</b>Decision &middot; Categorization</p><h2 class="ie-title" id="ie-labels-t" data-ie-split="">People decide <br>where each label goes.</h2></header>
+    <dl class="ie-dec ie-r"><div><dt>The question</dt><dd>The assistant labels every incoming email. How do people see, and change, what happens to each kind of mail?</dd></div><div><dt>What I designed</dt><dd>Every label sits in one of three lanes: Stays in inbox, Skips inbox or Off. The lane decides what happens to that mail, and moving a label is a drag.</dd></div></dl>
+    <div class="ie-ev ie-r" data-ie-ev="">
+      <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/labels-lanes.webp" width="1392" height="610" alt="Three lanes of labels. Stays in inbox: To Respond, FYI, Awaiting Reply, Investors. Skips inbox: Comment, Notification, Meeting Update, Actioned, Marketing, Hiring. Off: no labels." loading="lazy" decoding="async"></button>
+        <span class="ie-pin" style="--x:14%;--y:12%" data-n="1">1</span><span class="ie-pin" style="--x:47%;--y:12%" data-n="2">2</span><span class="ie-pin" style="--x:79%;--y:12%" data-n="3">3</span><span class="ie-pin" style="--x:3%;--y:25%" data-n="4">4</span></div>
+        <figcaption><span class="ie-tag">Prototype</span>Labels arranged by lane.</figcaption></figure>
+      <ol class="ie-legend"><li data-n="1"><b>Stays in inbox</b><span>Labelled mail stays where people look first.</span></li><li data-n="2"><b>Skips inbox</b><span>Mail waits under its label instead of crowding the inbox.</span></li><li data-n="3"><b>Off</b><span>The label isn&rsquo;t applied at all.</span></li><li data-n="4"><b>Moving a label</b><span>Drag it to another lane, or open it for the same options as a menu.</span></li></ol>
+    </div>
+    <div class="ie-ev ie-ev--flip ie-r" data-ie-ev="">
+      <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/create-label.webp" width="1440" height="704" alt="The New label dialog: name Customer escalations, a colour, the description Emails from customers about something broken or urgent, a Draft replies for these switch, and a preview of the lane and of the tag on a sample inbox row." loading="lazy" decoding="async"></button>
+        <span class="ie-pin" style="--x:20%;--y:57%" data-n="1">1</span><span class="ie-pin" style="--x:64%;--y:36%" data-n="2">2</span><span class="ie-pin" style="--x:76%;--y:68%" data-n="3">3</span><span class="ie-pin" style="--x:44%;--y:91%" data-n="4">4</span></div>
+        <figcaption><span class="ie-tag">Prototype</span>Create label, with a live preview. Sample text typed for the shot.</figcaption></figure>
+      <ol class="ie-legend"><li data-n="1"><b>A label in plain words</b><span>&ldquo;Which emails belong here?&rdquo; is answered in a sentence, rather than built from rules.</span></li><li data-n="2"><b>Its lane, before it exists</b><span>The dialog shows where the new label will land.</span></li><li data-n="3"><b>How it will look</b><span>The tag on a sample inbox row, before it&rsquo;s created.</span></li><li data-n="4"><b>Drafts, if wanted</b><span>A switch to have replies prepared for this kind of mail.</span></li></ol>
+    </div>
+    <details class="ie-more ie-r"><summary>Optional detail: smaller choices on this page</summary><ul>
+      <li>One main switch, &ldquo;Sort my email&rdquo;, turns labelling on or off; when it&rsquo;s off, the rest of the page dims and can&rsquo;t be used.</li>
+      <li>&ldquo;Keep labels I&rsquo;ve added myself&rdquo; leaves a person&rsquo;s own labels untouched.</li>
+      <li>Some moves aren&rsquo;t allowed: an &ldquo;Actioned&rdquo; label can&rsquo;t be set to stay in the inbox.</li>
+      <li>A four-step choice sets how strictly marketing mail is filtered.</li></ul></details>
+  </div>
+</section>
+
+<!-- 05 Decision: writing style -->
+<section class="ie-ch ie-light" id="ie-style" aria-labelledby="ie-style-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>05</b>Decision &middot; Writing style</p><h2 class="ie-title" id="ie-style-t" data-ie-split="">Describe the voice, <br>see the reply change.</h2></header>
+    <dl class="ie-dec ie-r"><div><dt>The question</dt><dd>Drafts are only useful if they sound like the person sending them. How does someone teach the assistant their voice?</dd></div><div><dt>What I designed</dt><dd>The style is set in the person&rsquo;s own words, with one-tap tones and rules to always follow, next to a sample reply that rewrites itself as they change.</dd></div></dl>
+    <div class="ie-pair ie-r" data-ie-ev="">
+      <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/style-instructions.webp" width="720" height="668" alt="Writing style settings: a name field, a How should it write? description, tone chips with Be concise and professional and Avoid filler words selected, and an Always remember list." loading="lazy" decoding="async"></button>
+        <span class="ie-pin" style="--x:16%;--y:40%" data-n="1">1</span><span class="ie-pin" style="--x:50%;--y:64%" data-n="2">2</span><span class="ie-pin" style="--x:30%;--y:86%" data-n="3">3</span></div>
+        <figcaption><span class="ie-tag">Prototype</span>The settings.</figcaption></figure>
+      <div class="ie-pair-arrow" aria-hidden="true"><span>rewrites</span></div>
+      <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/style-reply.webp" width="720" height="498" alt="A sample reply to Priya Raman about a Q3 timeline, written short and plainly because the concise and no-filler tones are on." loading="lazy" decoding="async"></button>
+        <span class="ie-pin" style="--x:60%;--y:44%" data-n="4">4</span></div>
+        <figcaption><span class="ie-tag">Prototype</span>The sample reply, with &ldquo;concise&rdquo; and &ldquo;no filler&rdquo; on.</figcaption></figure>
+      <ol class="ie-legend ie-legend--row"><li data-n="1"><b>In their own words</b><span>&ldquo;How should it write?&rdquo; is a sentence, not a form.</span></li><li data-n="2"><b>Tones in one tap</b><span>Be concise and professional, avoid filler words, and more.</span></li><li data-n="3"><b>Rules to always follow</b><span>An &ldquo;Always remember&rdquo; list.</span></li><li data-n="4"><b>The reply follows</b><span>A sample reply rewrites itself with every change.</span></li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Decision: drafts and follow-up boundaries -->
+<section class="ie-ch ie-light" id="ie-drafts" aria-labelledby="ie-drafts-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>06</b>Decision &middot; Drafts and follow-ups</p><h2 class="ie-title" id="ie-drafts-t" data-ie-split="">Prepared, <br>never sent on its own.</h2></header>
+    <dl class="ie-dec ie-r"><div><dt>The question</dt><dd>An assistant that writes replies could also send them. Where should it stop?</dd></div><div><dt>What I designed</dt><dd>The draft waits in the thread; the person reviews, changes and sends it. If someone hasn&rsquo;t replied, a follow-up is drafted in the thread the same way.</dd></div></dl>
+    <figure class="ie-bound ie-r" aria-label="Simplified diagram of the boundary. The assistant reads a new email and prepares a draft; the person reviews, changes and sends it. If there is no reply after the days the person chose, the assistant drafts a follow-up; the person sends it.">
+      <div class="ie-bound-lanes" aria-hidden="true"><span>Intent Email</span><span>The person</span></div>
+      <ol class="ie-bound-steps">
+        <li class="a"><b>Email arrives</b><span>It&rsquo;s read and labelled</span></li>
+        <li class="a"><b>Draft prepared</b><span>Left in the thread</span></li>
+        <li class="p"><b>Review and change</b><span>In their own inbox</span></li>
+        <li class="p"><b>Send</b><span>Only they can</span></li>
+        <li class="a"><b>No reply yet</b><span>After the days they chose</span></li>
+        <li class="a"><b>Follow-up drafted</b><span>In the same thread</span></li>
+        <li class="p"><b>Send</b><span>Again, only they can</span></li>
+      </ol>
+      <figcaption><span class="ie-tag">Simplified diagram</span>The line the assistant doesn&rsquo;t cross: it prepares, the person sends.</figcaption>
+    </figure>
+    <div class="ie-ev ie-r" data-ie-ev="">
+      <div class="ie-stack">
+        <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/draft-replies.webp" width="1448" height="294" alt="Draft replies settings: Write draft replies is on; Delete unused drafts after 2 days." loading="lazy" decoding="async"></button>
+          <span class="ie-pin" style="--x:96%;--y:30%" data-n="1">1</span><span class="ie-pin" style="--x:93%;--y:76%" data-n="2">2</span></div>
+          <figcaption><span class="ie-tag">Prototype</span>Draft replies.</figcaption></figure>
+        <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/followups.webp" width="1448" height="332" alt="Follow-up settings: Follow-up drafts is on, described as a short follow-up drafted in the thread to review and send; Follow up after 3 days." loading="lazy" decoding="async"></button>
+          <span class="ie-pin" style="--x:96%;--y:28%" data-n="3">3</span><span class="ie-pin" style="--x:93%;--y:78%" data-n="4">4</span></div>
+          <figcaption><span class="ie-tag">Prototype</span>Follow-ups.</figcaption></figure>
+      </div>
+      <ol class="ie-legend"><li data-n="1"><b>Drafts, not sends</b><span>One switch for drafting. The prototype&rsquo;s own line: &ldquo;nothing goes out on its own unless you allow it.&rdquo;</span></li><li data-n="2"><b>Nothing piles up</b><span>Unused drafts are deleted after the days chosen.</span></li><li data-n="3"><b>Follow-ups are drafts too</b><span>Written in the thread, to review and send.</span></li><li data-n="4"><b>The person sets the timing</b><span>How long to wait is a setting, not a guess.</span></li></ol>
+    </div>
+    <details class="ie-more ie-r"><summary>Optional detail: signatures</summary>
+      <p>Drafts can end with a signature per mailbox, or a default one. With nothing set, the page says so plainly: drafts end without one.</p>
+      <figure class="ie-scr"><div class="ie-scr-in"><button type="button" class="ie-zoom" data-ie-zoom=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/signatures.webp" width="1448" height="872" alt="Signature settings with one signature set for the mailbox and an empty default signature." loading="lazy" decoding="async"></button></div>
+        <figcaption><span class="ie-tag">Prototype</span>Signatures, with sample data.</figcaption></figure></details>
+  </div>
+</section>
+
+<!-- 07 Morning brief and email conversation -->
+<section class="ie-ch ie-dark ie-sheet" id="ie-brief" aria-labelledby="ie-brief-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>07</b>Morning brief and email conversation</p><h2 class="ie-title" id="ie-brief-t" data-ie-split="">A brief in the inbox. <br>Replies are the conversation.</h2></header>
+    <dl class="ie-dec ie-r"><div><dt>The question</dt><dd>How does someone check on the assistant, or ask it for something, without opening another app?</dd></div><div><dt>What I designed</dt><dd>Each morning it sends a short brief. To ask for something, people reply to that email, so even talking to the assistant happens in the inbox.</dd></div></dl>
+    <figure class="ie-thread ie-r" aria-label="Illustrative demo of an email thread: the morning brief from Intent Email, then the person's reply. Placeholder text, not a production screenshot.">
+      <div class="ie-msg">
+        <div class="ie-msg-h"><span class="ie-av">IE</span><span><b>Intent Email</b><small>to you &middot; Your morning brief</small></span><em>Morning</em></div>
+        <div class="ie-msg-b"><p>Good morning. Here&rsquo;s what&rsquo;s waiting for you.</p>
+          <dl class="ie-brief-l"><div><dt>Needs your reply</dt><dd>Example thread &middot; a draft is ready</dd></div><div><dt>Follow-ups prepared</dt><dd>Example thread &middot; no reply yet</dd></div><div><dt>Skipped the inbox</dt><dd>Notifications and marketing, under their labels</dd></div></dl></div>
+      </div>
+      <div class="ie-msg ie-msg--you">
+        <div class="ie-msg-h"><span class="ie-av ie-av--you">You</span><span><b>You</b><small>to Intent Email &middot; Re: Your morning brief</small></span><em>Reply</em></div>
+        <div class="ie-msg-b"><p>Example: a short request written as an ordinary reply.</p></div>
+      </div>
+      <figcaption><span class="ie-tag">Illustrative demo</span>Built for this page with placeholder text. Not a production screenshot.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 System and handoff -->
+<section class="ie-ch ie-light ie-sheet" id="ie-system" aria-labelledby="ie-system-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>08</b>System and handoff</p><h2 class="ie-title" id="ie-system-t" data-ie-split="">Two surfaces, <br>one assistant.</h2>
+      <p class="ie-lead ie-r">The split is the core of the design: settings and steering live in the web app, and everything the assistant prepares lands in the inbox.</p></header>
+    <figure class="ie-sys ie-r" aria-label="Simplified diagram: the web app, where people steer, sets labels, writing style, drafting and follow-ups and signatures. Intent Email reads new mail and prepares work, which arrives in the person's Gmail or Outlook inbox as labels, drafts in the thread, follow-ups and a morning brief. Replying to the brief sends instructions back.">
+      <div class="ie-sys-p"><p class="ie-label">Where people steer</p><b>Web app</b><ul><li>Labels and their lanes</li><li>Writing style</li><li>Drafts and follow-ups</li><li>Signatures</li></ul></div>
+      <div class="ie-sys-c"><span class="ie-sys-line" aria-hidden="true"></span><b>Intent Email</b><small>Reads new mail, prepares work</small><span class="ie-sys-line" aria-hidden="true"></span></div>
+      <div class="ie-sys-p"><p class="ie-label">Where work arrives</p><b>Your inbox</b><ul><li>Labels on each email</li><li>Drafts in the thread</li><li>Follow-ups</li><li>A morning brief</li></ul></div>
+      <p class="ie-sys-loop">Replying to the brief sends instructions back</p>
+      <figcaption><span class="ie-tag">Simplified diagram</span>An illustration of the split, not an architecture drawing.</figcaption>
+    </figure>
+    <div class="ie-handoff ie-r">
+      <div><p class="ie-label">Handoff</p><p class="ie-handoff-t">I handed the design to engineering as a working high-fidelity prototype with a written spec.</p></div>
+      <ul><li>Colour tokens shared with the rest of Ve</li><li>Every control and its states</li><li>Every dialog</li><li>Interaction details, such as the drag rules between lanes</li></ul>
+    </div>
+    <details class="ie-more ie-r"><summary>Optional: click through the prototype</summary>
+      <p>The prototype I designed, with sample data. Drag labels between lanes, create a label, switch to Drafting and open the writing-style dialog. Every decision above is explained without it.</p>
+      <figure class="ie-scr"><div class="ie-scr-in ie-live" data-ie-live=""><img src="/vishnuvardhana0402/Vishnu/preview/case/intent-email/img/window-categorization.webp" width="2880" height="1800" alt="The Intent Email prototype, Categorization page, with sample data." loading="lazy" decoding="async"><button type="button" class="ie-live-go" data-ie-load="">Load the interactive prototype</button></div></figure>
+      <p class="ie-cap"><a class="ie-open" href="/vishnuvardhana0402/Vishnu/preview/case/intent-email/prototype/" target="_blank" rel="noopener">Open full screen &#8599;</a>Best on a computer; on a phone, the still above shows the same screen.</p></details>
+  </div>
+</section>
+
+
+<!-- 09 Honest outcomes -->
+<section class="ie-ch ie-dark ie-sheet" id="ie-outcomes" aria-labelledby="ie-outcomes-t">
+  <div class="ie-wrap">
+    <header class="ie-head"><p class="ie-k ie-r"><b>09</b>Honest outcomes</p><h2 class="ie-title" id="ie-outcomes-t" data-ie-split="">What shipped, <br>and what isn&rsquo;t measured yet.</h2></header>
+    <div class="ie-out ie-r">
+      <div><p class="ie-label">Shipped</p><ul class="ie-ticks"><li>Intent Email is live, on work Gmail and Outlook.</li><li>Labelling with three lanes, and labels described in plain words.</li><li>Drafted replies and follow-ups that wait in the thread for the person.</li><li>A writing style set in the person&rsquo;s own words.</li><li>A morning brief, and conversation by replying to it.</li></ul></div>
+      <div><p class="ie-label">Not measured yet</p><ul class="ie-ticks ie-ticks--open"><li>Time saved.</li><li>How often drafts are sent as written, edited or discarded.</li><li>How accurate the labels are.</li></ul><p class="ie-note">No results are claimed on this page. Numbers will be added only when they come from real measurement.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Next case -->
+<section class="ie-ch ie-dark ie-ch--next" aria-label="Next case study">
+  <div class="ie-wrap">
+    <a class="ie-next ie-r" href="#/case">
+      <span class="ie-next-img"><img src="/vishnuvardhana0402/Vishnu/preview/assets/home/ve.webp" alt="" loading="lazy" decoding="async"></span>
+      <span class="ie-next-b"><span class="ie-label">Next case study &middot; 01</span><b>Ve Browser</b><span class="ie-next-d">The AI browser that stays one step ahead.</span><span class="ie-next-go">View case<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<div class="ie-lb" data-ie-lb="" hidden><button type="button" class="ie-lb-x" aria-label="Close">&times;</button><img alt=""></div>
+</div></template>
+
+<!--/intent:tpl-->
 <template id="yp-page-more"><div class="mp mc" data-mc-page="">
   <div class="mp-top"><a href="#/" data-go-back="" class="mp-back start-build"><span class="tile"></span><svg class="icon" viewBox="0 0 30 15" aria-hidden="true"></svg><span class="label">All work</span></a></div>
   <section data-mc="" aria-label="More projects" style="position: relative; z-index: 30; width: 100%; background: #0f0f10; font-family: 'Google Sans', system-ui, sans-serif; color: #ffffff;">
@@ -9757,7 +9980,7 @@ document.addEventListener("click", e => { const a = e.target.closest && e.target
   const t = document.getElementById(a.getAttribute("data-jump")); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 70, behavior: "smooth" }); });
 
 const pageHost = document.getElementById("yp-page");
-const PAGES = { "case": "yp-page-case", more: "yp-page-more" };
+const PAGES = { "case": "yp-page-case", intent: "yp-page-intent", more: "yp-page-more" };
 const HOME = { "": 1, work: 1, intro: 1, showcase: 1, process: 1 };
 const routeOf = () => {
   const h = String(location.hash || "");
@@ -10672,6 +10895,373 @@ document.querySelectorAll(".start-build").forEach(window.__ypStartBuild);
 
 
 
+<!--intent:assets-->
+<style id="ie-css">
+/* ══ Intent Email case study ══════════════════════════════════════════════════════════════════════════════════════
+   One design system, carried through every chapter. It follows the portfolio's language (dark and light chapters,
+   big tight headlines, numbered chapter labels, a floating chapter pill, the Let's Talk button), and every component
+   below is built only from these tokens.
+
+   Tokens
+     colour   dark  --d0 page · --d1 surface · --d2 raised · --dl hairline · --on / --on2 text
+              light --l0 page · --l1 surface · --l2 raised · --ll hairline · --ink / --ink2 text
+              one signal colour, --live (green), used only for "live" and "shipped"; label colours appear only inside
+              product visuals, where the product itself uses them
+     type     Google Sans only. display · title · statement · lead · body · label (caps) · caption
+     space    8-point: 8 16 24 32 48 64 96, chapters padded clamp(112px, 14vw, 200px)
+     radius   12 screens · 20 cards and panels · 999 pills and buttons
+     motion   one curve (--ease), 450 ms for UI, 800 ms for reveals; titles rise word by word; everything holds still
+              under reduced motion and reads fully without script
+   Chapter anatomy (every chapter): numbered label → title → lead or decision (the question / what I designed) →
+   evidence (screens with numbered callouts, or a diagram) → optional detail behind a closed panel.
+   ══════════════════════════════════════════════════════════════════════════════════════════════════════════════════ */
+.ie { --d0: #09090B; --d1: #131316; --d2: #1B1B1F; --dl: rgba(255,255,255,.1); --on: #F4F4F6; --on2: rgba(244,244,246,.64);
+  --l0: #F3F2EE; --l1: #FFFFFF; --l2: #EAE9E4; --ll: rgba(17,17,20,.1); --ink: #111114; --ink2: rgba(17,17,20,.64);
+  --live: #22C55E; --ease: cubic-bezier(.16,1,.3,1); --t: .45s; --f: 'Google Sans', system-ui, sans-serif;
+  --side: clamp(20px, 5vw, 72px); --max: 1240px; --chp: clamp(112px, 14vw, 200px);
+  position: relative; background: var(--d0); color: var(--on); font: 400 17px/1.6 var(--f); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+.ie *, .ie *::before, .ie *::after { box-sizing: border-box; }
+.ie, .ie *:not(svg):not(svg *) { font-family: var(--f) !important; }
+.ie img { display: block; max-width: 100%; height: auto; }
+.ie a { color: inherit; }
+.ie :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 6px; }
+.ie-wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--side); }
+
+/* themes: a chapter is dark or light; light and dark sheets slide over the chapter before with rounded top corners */
+.ie-dark { --bg: var(--d0); --s1: var(--d1); --s2: var(--d2); --line: var(--dl); --tx: var(--on); --tx2: var(--on2); background: var(--bg); color: var(--tx); }
+.ie-light { --bg: var(--l0); --s1: var(--l1); --s2: var(--l2); --line: var(--ll); --tx: var(--ink); --tx2: var(--ink2); background: var(--bg); color: var(--tx); }
+.ie-ch { position: relative; padding: var(--chp) 0; }
+.ie-sheet { margin-top: -32px; border-radius: 32px 32px 0 0; box-shadow: 0 -30px 60px -40px rgba(0,0,0,.6); z-index: 1; }
+.ie-ch + .ie-ch:not(.ie-sheet) { padding-top: calc(var(--chp) * .5); }
+
+/* type */
+.ie-eyebrow, .ie-label, .ie-k { margin: 0; font: 600 12px/1.2 var(--f); letter-spacing: .12em; text-transform: uppercase; color: var(--tx2, var(--on2)); }
+.ie-k { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.ie-k b { display: inline-grid; place-items: center; min-width: 30px; height: 22px; padding: 0 8px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); color: var(--tx); font-weight: 600; letter-spacing: 0; }
+.ie-k--c { justify-content: center; }
+.ie-display { margin: 0; font: 600 clamp(46px, 6.6vw, 112px)/1.02 var(--f); letter-spacing: -.045em; text-wrap: balance; }
+.ie-title { margin: 0; font: 600 clamp(36px, 4.9vw, 78px)/1.04 var(--f); letter-spacing: -.04em; text-wrap: balance; max-width: 18ch; }
+.ie-statement { max-width: 22ch; margin: 0 auto; text-align: center; font: 600 clamp(34px, 4.6vw, 72px)/1.08 var(--f); letter-spacing: -.035em; text-wrap: balance; }
+.ie-statement em { font-style: normal; color: var(--tx2); }
+.ie-lead { max-width: 620px; margin: 28px 0 0; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.55; color: var(--tx2); text-wrap: pretty; }
+.ie-lead--c { margin: 28px auto 0; text-align: center; }
+.ie-head { margin-bottom: clamp(40px, 5vw, 72px); }
+.ie-cap, figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--tx2); }
+.ie-tag { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--tx); }
+
+/* motion: reveals and word-by-word titles (only once the script has run, never under reduced motion) */
+.ie.is-js .ie-r { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.ie.is-js .ie-r.in { opacity: 1; transform: none; }
+.ie.is-js [data-ie-split] .w { display: inline-block; opacity: 0; transform: translateY(.45em); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i) * 45ms); }
+.ie.is-js [data-ie-split].in .w { opacity: 1; transform: none; }
+
+/* the chapter pill (portfolio pattern) with All work and Let's Talk as the header's button */
+.ie-nav { position: fixed; z-index: 60; top: 12px; left: 0; right: 0; display: flex; justify-content: center; padding: 0 12px; pointer-events: none; }
+.ie-nav-in { pointer-events: auto; display: flex; align-items: center; gap: 4px; max-width: 100%; padding: 4px; border-radius: 999px; background: rgba(20,20,23,.78);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4); backdrop-filter: blur(20px) saturate(1.4); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1), 0 12px 30px -14px rgba(0,0,0,.6); }
+.ie-nav-ch { position: relative; display: flex; gap: 2px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.ie-nav-ch::-webkit-scrollbar { display: none; }
+.ie-nav-ch a { position: relative; z-index: 1; flex: none; display: flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 500; white-space: nowrap; text-decoration: none; color: rgba(255,255,255,.66) !important; transition: color var(--t) var(--ease); }
+.ie-nav-ch a:hover { color: #fff !important; }
+.ie-nav-ch a.on { color: #111114 !important; }
+.ie-nav-ind { position: absolute; z-index: 0; left: 0; top: 0; height: 40px; width: 0; border-radius: 999px; background: #fff; opacity: 0; transition: transform var(--t) var(--ease), width var(--t) var(--ease), opacity .2s; }
+.ie-btn { flex: none; position: relative; display: inline-flex; align-items: center; height: 40px; padding: 0 16px 0 46px; border-radius: 999px; background: #fff !important; color: #111114 !important;
+  font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; isolation: isolate; text-decoration: none; }
+.ie-btn .tile { position: absolute; z-index: -1; left: 3px; top: 3px; width: 34px; height: 34px; border-radius: 999px; background: #111114; transition: width .42s var(--ease); }
+.ie-btn svg { position: absolute; left: 10px; top: 15px; width: 20px; height: 10px; transition: transform .42s var(--ease); }
+.ie-btn--back svg { left: 12px; top: 12px; width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ie-btn span { transition: color .3s, transform .42s var(--ease); }
+.ie-btn--talk svg rect { fill: #fff; opacity: 0; } .ie-btn--talk svg rect.on { opacity: 1; }
+@media (hover: hover) {
+  .ie-btn:hover .tile { width: calc(100% - 6px); } .ie-btn:hover span { color: #fff; }
+  .ie-btn--talk:hover span { transform: translateX(-30px); } .ie-btn--talk:hover svg { transform: translateX(calc(var(--tw, 110px) - 40px)); }
+  .ie-btn--back:hover svg { transform: translateX(-2px); }
+}
+
+/* hero: the product composition on the right, the headline over its dark side, a summary, the facts */
+.ie-hero { position: relative; min-height: max(100svh, 760px); display: flex; align-items: flex-end; padding: 140px 0 clamp(40px, 6vh, 72px); overflow: hidden; }
+.ie-hero-art { position: absolute; inset: 0; }
+.ie-hero-art img { position: absolute; right: -6vw; top: 40%; width: min(78vw, 1400px); height: auto; transform: translateY(calc(-50% + var(--py, 0px))); opacity: .9; }
+.ie-hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--d0) 18%, rgba(9,9,11,.55) 52%, rgba(9,9,11,0) 78%), linear-gradient(0deg, var(--d0) 12%, rgba(9,9,11,.82) 46%, rgba(9,9,11,0) 76%); }
+.ie-hero-in { position: relative; width: 100%; }
+.ie-eyebrow { margin-bottom: 28px; }
+.ie-hero-sum { max-width: 470px; margin: clamp(32px, 6vh, 64px) 0 0 auto; padding-left: 20px; border-left: 2px solid var(--on); font-size: clamp(17px, 1.35vw, 21px); line-height: 1.5; color: var(--on); }
+.ie-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 20px 32px; margin: clamp(40px, 8vh, 96px) 0 0; padding-top: 24px; border-top: 1px solid var(--dl); }
+.ie-meta div { display: grid; gap: 8px; } .ie-meta dt { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--on2); }
+.ie-meta dd { margin: 0; font-size: clamp(15px, 1.15vw, 18px); font-weight: 500; }
+.ie-live-dot { display: inline-block; width: 8px; height: 8px; margin-right: 10px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 4px rgba(34,197,94,.2); vertical-align: 2px; }
+.ie-hero-cap { max-width: 640px; margin: 20px 0 0; font-size: 14px; line-height: 1.5; color: var(--on2); }
+
+/* context: three facts on hairlines */
+.ie-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.ie-facts li { display: grid; align-content: start; gap: 10px; padding: 28px 28px 0 0; }
+.ie-facts li + li { padding-left: 28px; border-left: 1px solid var(--line); }
+.ie-facts b { font-size: 19px; font-weight: 600; letter-spacing: -.01em; } .ie-facts span { color: var(--tx2); font-size: 16px; }
+.ie-dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--tx2); } .ie-dot--live { background: var(--live); box-shadow: 0 0 0 4px rgba(34,197,94,.2); } .ie-dot--off { box-shadow: inset 0 0 0 2px var(--line); background: var(--line); }
+
+/* people: two columns on a hairline */
+.ie-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); max-width: 1000px; }
+.ie-cols > div { padding: 28px 40px 0 0; } .ie-cols > div + div { padding-left: 40px; border-left: 1px solid var(--line); }
+.ie-cols p:not(.ie-label) { margin: 12px 0 0; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.55; }
+
+/* the design question: a statement and its three principles */
+.ie-ch--q { text-align: center; }
+.ie-principles { list-style: none; counter-reset: p; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: clamp(48px, 6vw, 80px) auto 0; padding: 0; text-align: left; }
+.ie-principles li { counter-increment: p; display: grid; gap: 8px; padding: 24px; border-radius: 20px; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); }
+.ie-principles li::before { content: "0" counter(p); font-size: 12px; font-weight: 600; letter-spacing: .12em; color: var(--tx2); }
+.ie-principles b { font-size: 22px; font-weight: 600; letter-spacing: -.02em; } .ie-principles span { color: var(--tx2); font-size: 15.5px; }
+
+/* a decision: the question, then what I designed, on one hairline */
+.ie-dec { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 clamp(48px, 6vw, 88px); border-top: 1px solid var(--line); max-width: 1000px; }
+.ie-dec > div { padding: 24px 40px 0 0; } .ie-dec > div + div { padding-left: 40px; border-left: 1px solid var(--line); }
+.ie-dec dt { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--tx2); }
+.ie-dec dd { margin: 12px 0 0; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.55; color: var(--tx2); }
+.ie-dec > div + div dd { color: var(--tx); }
+
+/* evidence: a product screen with numbered callouts, and the legend that explains them */
+.ie-ev { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 72px); align-items: center; }
+.ie-ev + .ie-ev { margin-top: clamp(64px, 8vw, 120px); }
+.ie-ev--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); } .ie-ev--flip > .ie-scr { order: 2; }
+.ie-scr { margin: 0; }
+.ie-scr-in { position: relative; border-radius: 12px; overflow: visible; }
+.ie-zoom { display: block; width: 100%; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: #111114; cursor: zoom-in;
+  box-shadow: 0 0 0 1px var(--line), 0 40px 80px -40px rgba(0,0,0,.55); transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease); }
+.ie-zoom:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--tx2), 0 48px 90px -40px rgba(0,0,0,.6); }
+.ie-zoom img { width: 100%; }
+.ie-pin { position: absolute; left: var(--x); top: var(--y); z-index: 2; display: grid; place-items: center; width: 28px; height: 28px; translate: -50% -50%; border-radius: 50%;
+  background: #fff; color: #111114; font-size: 13px; font-weight: 600; box-shadow: 0 0 0 4px rgba(255,255,255,.22), 0 6px 16px -4px rgba(0,0,0,.6); pointer-events: none; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.ie-pin.hot { transform: scale(1.18); box-shadow: 0 0 0 7px rgba(255,255,255,.3), 0 6px 16px -4px rgba(0,0,0,.6); }
+.ie-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.ie-legend li { display: grid; grid-template-columns: 28px 1fr; gap: 2px 14px; padding: 14px 12px; border-radius: 14px; transition: background var(--t) var(--ease); }
+.ie-legend li::before { content: attr(data-n); grid-row: span 2; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--tx); color: var(--bg); font-size: 13px; font-weight: 600; }
+.ie-legend li.hot { background: var(--s2); }
+.ie-legend b { font-size: 17px; font-weight: 600; } .ie-legend span { color: var(--tx2); font-size: 15.5px; line-height: 1.5; }
+.ie-legend--row { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
+.ie-stack { display: grid; gap: 28px; }
+/* two screens joined by what happens between them */
+.ie-pair { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: center; gap: 16px; }
+.ie-pair-arrow { position: relative; height: 2px; background: var(--tx2); }
+.ie-pair-arrow::after { content: ""; position: absolute; right: -1px; top: -4px; width: 9px; height: 9px; border-top: 2px solid var(--tx2); border-right: 2px solid var(--tx2); transform: rotate(45deg); }
+.ie-pair-arrow span { position: absolute; left: 50%; bottom: 10px; translate: -50% 0; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--tx2); }
+
+/* the boundary: two lanes, the assistant's steps above, the person's below */
+.ie-bound { margin: 0 0 clamp(64px, 8vw, 112px); padding: clamp(24px, 3vw, 40px); border-radius: 20px; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); }
+.ie-bound-lanes { display: none; }
+.ie-bound-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: auto auto; column-gap: 10px; position: relative; }
+.ie-bound-steps::before { content: "Intent Email"; position: absolute; left: 0; top: -2px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--tx2); }
+.ie-bound-steps::after { content: "The person"; position: absolute; left: 0; bottom: -2px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--tx2); }
+.ie-bound-steps li { position: relative; display: grid; gap: 4px; align-content: start; padding: 14px; border-radius: 14px; font-size: 14px; line-height: 1.4; }
+.ie-bound-steps li b { font-size: 15px; font-weight: 600; } .ie-bound-steps li span { color: var(--tx2); }
+.ie-bound-steps li.a { grid-row: 1; margin: 26px 0 34px; background: var(--s2); }
+.ie-bound-steps li.p { grid-row: 2; margin: 0 0 26px; background: #111114; color: #fff; } .ie-bound-steps li.p span { color: rgba(255,255,255,.66); }
+.ie-bound-steps li:nth-child(1) { grid-column: 1; } .ie-bound-steps li:nth-child(2) { grid-column: 2; } .ie-bound-steps li:nth-child(3) { grid-column: 3; }
+.ie-bound-steps li:nth-child(4) { grid-column: 4; } .ie-bound-steps li:nth-child(5) { grid-column: 5; } .ie-bound-steps li:nth-child(6) { grid-column: 6; } .ie-bound-steps li:nth-child(7) { grid-column: 7; }
+.ie-bound-steps li.a + li.p::before { content: ""; position: absolute; left: -6px; top: -36px; width: 2px; height: calc(100% + 40px); background: repeating-linear-gradient(var(--tx) 0 6px, transparent 6px 11px); opacity: .5; }
+.ie-bound figcaption { margin-top: 8px; }
+
+/* the thread: the morning brief, then the reply (demo) */
+.ie-thread { max-width: 760px; margin: 0; display: grid; gap: 16px; position: relative; }
+.ie-msg { border-radius: 20px; background: var(--l1); color: var(--ink); overflow: hidden; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
+.ie-msg--you { margin-left: clamp(0px, 10vw, 120px); background: var(--l0); }
+.ie-msg-h { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-bottom: 1px solid var(--ll); }
+.ie-msg-h > span:nth-child(2) { display: grid; gap: 2px; flex: 1; } .ie-msg-h b { font-size: 16px; font-weight: 600; } .ie-msg-h small, .ie-msg-h em { font-size: 13px; font-style: normal; color: var(--ink2); }
+.ie-av { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #111114; color: #fff; font-size: 13px; font-weight: 600; }
+.ie-av--you { background: var(--l2); color: var(--ink); }
+.ie-msg-b { padding: 18px 22px 22px; font-size: 16px; line-height: 1.55; } .ie-msg-b > p { margin: 0; }
+.ie-brief-l { display: grid; gap: 14px; margin: 18px 0 0; }
+.ie-brief-l dt { font-size: 11.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink2); } .ie-brief-l dd { margin: 4px 0 0; }
+.ie-thread figcaption { color: var(--tx2); }
+
+/* the system: two surfaces and the assistant between them */
+.ie-sys { display: grid; grid-template-columns: 1fr minmax(160px, .7fr) 1fr; align-items: center; gap: 0; margin: 0; }
+.ie-sys-p { display: grid; gap: 10px; padding: clamp(24px, 3vw, 36px); border-radius: 20px; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); }
+.ie-sys-p > b { font-size: clamp(24px, 2.4vw, 34px); font-weight: 600; letter-spacing: -.03em; }
+.ie-sys-p ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; } .ie-sys-p li { padding-top: 8px; border-top: 1px solid var(--line); color: var(--tx2); }
+.ie-sys-c { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; padding: 0 12px; }
+.ie-sys-c b { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 999px; background: #111114; color: #fff; font-size: 15px; font-weight: 600; }
+.ie-sys-c small { font-size: 13px; color: var(--tx2); }
+.ie-sys-line { width: 2px; height: 28px; background: var(--line); }
+.ie-sys-loop { grid-column: 1 / -1; margin: 16px 0 0; padding: 12px 18px; border-radius: 999px; text-align: center; font-size: 14px; color: var(--tx2); box-shadow: inset 0 0 0 1px var(--line); }
+.ie-sys figcaption { grid-column: 1 / -1; }
+.ie-handoff { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); margin-top: clamp(64px, 8vw, 112px); padding-top: 28px; border-top: 1px solid var(--line); }
+.ie-handoff-t { margin: 12px 0 0; font-size: clamp(22px, 2vw, 30px); line-height: 1.25; font-weight: 600; letter-spacing: -.02em; }
+.ie-handoff ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.ie-handoff li { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.ie-handoff li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%; background: var(--tx)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2 6.8 11 12 5' fill='none' stroke='%23F3F2EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat; }
+
+/* outcomes */
+.ie-out { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+.ie-out > div { padding: 28px 40px 0 0; } .ie-out > div + div { padding-left: 40px; border-left: 1px solid var(--line); }
+.ie-ticks { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; }
+.ie-ticks li { position: relative; padding-left: 32px; font-size: 17px; line-height: 1.5; }
+.ie-ticks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--live)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2 6.8 11 12 5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat; }
+.ie-ticks--open li { color: var(--tx2); } .ie-ticks--open li::before { background: none; box-shadow: inset 0 0 0 1.5px var(--tx2); }
+.ie-note { margin: 24px 0 0; font-size: 14px; color: var(--tx2); }
+
+/* optional detail, closed by default */
+.ie-more { max-width: 1000px; margin-top: clamp(48px, 6vw, 80px); border-radius: 20px; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); }
+.ie-more summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 0 24px; cursor: pointer; list-style: none; font-size: 16px; font-weight: 600; }
+.ie-more summary::-webkit-details-marker { display: none; }
+.ie-more summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); font-weight: 500; transition: transform var(--t) var(--ease); }
+.ie-more[open] summary::after { transform: rotate(45deg); }
+.ie-more > ul, .ie-more > p, .ie-more > figure { margin: 0 24px 20px; color: var(--tx2); font-size: 16px; }
+.ie-more > ul { padding-left: 18px; } .ie-more li + li { margin-top: 8px; }
+.ie-live { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 12px; background: #111114; box-shadow: 0 0 0 1px var(--line); }
+.ie-live > img { width: 100%; height: 100%; object-fit: cover; object-position: left top; filter: brightness(.6); }
+.ie-live iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; background: #111114; }
+.ie-live-go { position: absolute; left: 50%; top: 50%; translate: -50% -50%; min-height: 48px; padding: 0 24px; border: 0; border-radius: 999px; background: #fff; color: #111114; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 18px 40px -12px rgba(0,0,0,.6); }
+.ie-open { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); text-decoration: none; font-weight: 600; color: var(--tx) !important; }
+.ie-more .ie-cap { margin: 0 24px 24px; }
+
+/* next case */
+.ie-ch--next { padding-top: calc(var(--chp) * .5); }
+.ie-next { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; border-radius: 20px; overflow: hidden; background: var(--d1); box-shadow: inset 0 0 0 1px var(--dl); text-decoration: none; }
+.ie-next-img { overflow: hidden; } .ie-next-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.ie-next:hover .ie-next-img img { transform: scale(1.04); }
+.ie-next-b { display: grid; align-content: center; gap: 14px; padding: clamp(28px, 4vw, 56px); }
+.ie-next-b > b { font-size: clamp(36px, 4vw, 60px); font-weight: 600; line-height: 1; letter-spacing: -.04em; }
+.ie-next-d { color: var(--on2); font-size: 17px; }
+.ie-next-go { display: inline-flex; align-items: center; gap: 10px; justify-self: start; height: 44px; margin-top: 8px; padding: 0 20px; border-radius: 999px; background: #fff; color: #111114; font-size: 14px; font-weight: 600; }
+.ie-next-go svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--t) var(--ease); }
+.ie-next:hover .ie-next-go svg { transform: translateX(4px); }
+
+/* the lightbox */
+.ie-lb { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 72px 4vw 4vw; background: rgba(9,9,11,.92); }
+.ie-lb[hidden] { display: none; }
+.ie-lb img { width: min(100%, 1600px); max-height: calc(100vh - 120px); object-fit: contain; border-radius: 12px; }
+.ie-lb-x { position: absolute; right: 18px; top: 14px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: #fff; color: #111114; font-size: 24px; line-height: 1; cursor: pointer; }
+
+/* review-only notes (only ever present in the review draft) */
+.ie .rv { max-width: 880px; margin: 32px 0 0; padding: 14px 18px; border-radius: 12px; background: #fff7d6; color: #4a3b00; font-size: 14.5px; line-height: 1.55; box-shadow: inset 0 0 0 1px #ecd98a; }
+.ie .rv b { font-weight: 600; }
+
+/* tablet */
+@media (max-width: 980px) {
+  .ie-ev, .ie-ev--flip { grid-template-columns: 1fr; } .ie-ev--flip > .ie-scr { order: 0; }
+  .ie-pair { grid-template-columns: 1fr; } .ie-pair-arrow { width: 2px; height: 48px; justify-self: center; }
+  .ie-pair-arrow::after { right: -4px; top: auto; bottom: -1px; transform: rotate(135deg); } .ie-pair-arrow span { left: 16px; bottom: 50%; translate: 0 50%; white-space: nowrap; }
+  .ie-legend--row { grid-template-columns: 1fr 1fr; }
+  .ie-sys { grid-template-columns: 1fr; gap: 0; } .ie-sys-c { padding: 8px 0; }
+  .ie-bound-steps { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 8px; padding-top: 0; }
+  .ie-bound-steps::before, .ie-bound-steps::after { display: none; }
+  .ie-bound-steps li.a, .ie-bound-steps li.p { grid-row: auto; grid-column: 1 !important; margin: 0; }
+  .ie-bound-steps li.a { margin-right: 15%; } .ie-bound-steps li.p { margin-left: 15%; }
+  .ie-bound-steps li.a::after { content: "Intent Email"; } .ie-bound-steps li.p::after { content: "The person"; color: rgba(255,255,255,.6); }
+  .ie-bound-steps li::after { position: absolute; right: 14px; top: 14px; font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--tx2); }
+  .ie-bound-steps li.a + li.p::before { display: none; }
+}
+/* phone */
+@media (max-width: 760px) {
+  .ie-btn { width: 40px; padding: 0; } .ie-btn span { display: none; }
+  .ie-hero { min-height: 0; padding-top: 110px; display: block; }
+  .ie-hero-art { position: relative; height: 78vw; margin: 0 0 -8vw; }
+  .ie-hero-art img { right: auto; left: -4vw; top: 50%; width: 118vw; }
+  .ie-display br, .ie-title br { display: none; }
+  .ie-hero-art::after { background: linear-gradient(0deg, var(--d0) 6%, rgba(9,9,11,0) 50%); }
+  .ie-hero-sum { margin-left: 0; }
+  .ie-facts, .ie-cols, .ie-dec, .ie-out, .ie-handoff { grid-template-columns: 1fr; }
+  .ie-facts li, .ie-facts li + li, .ie-cols > div, .ie-cols > div + div, .ie-dec > div, .ie-dec > div + div, .ie-out > div, .ie-out > div + div { padding: 24px 0 0; border-left: 0; }
+  .ie-facts li + li, .ie-cols > div + div, .ie-dec > div + div, .ie-out > div + div { margin-top: 24px; border-top: 1px solid var(--line); }
+  .ie-principles { grid-template-columns: 1fr; }
+  .ie-legend--row { grid-template-columns: 1fr; }
+  .ie-pin { width: 24px; height: 24px; font-size: 12px; }
+  .ie-msg--you { margin-left: 0; }
+  .ie-next { grid-template-columns: 1fr; } .ie-next-img { aspect-ratio: 16 / 9; }
+  .ie-sheet { margin-top: -24px; border-radius: 24px 24px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ie *, .ie *::before, .ie *::after { transition: none !important; animation: none !important; }
+}
+</style>
+<script>
+/* Intent Email case study: behaviour. Runs whenever the page is on screen; every part is optional and the page reads
+   fully without it. Under reduced motion nothing moves. */
+(function () {
+  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var F = ["o##oo##ooo/oo##oo##oo/ooo##oo##o/oo##oo##oo/o##oo##ooo","oo##oo##oo/ooo##oo##o/oooo##oo##/ooo##oo##o/oo##oo##oo","ooo##oo##o/oooo##oo##/ooooo##oo#/oooo##oo##/ooo##oo##o","oooo##oo#o/ooooo##oo#/oooooo##oo/ooooo##oo#/oooo##oo#o","ooooo##oo#/oooooo##oo/ooooooo##o/oooooo##oo/ooooo##oo#","oooooo##oo/ooooooo##o/oooooooo##/ooooooo##o/oooooo##oo","ooooooo##o/oooooooo##/#oooooooo#/oooooooo##/ooooooo##o","oooooooo##/#oooooooo#/##oooooooo/#oooooooo#/oooooooo##","#oooooooo#/##oooooooo/o##ooooooo/##oooooooo/#oooooooo#","##oooooooo/o##ooooooo/oo##oooooo/o##ooooooo/##oooooooo","o##ooooooo/oo##oooooo/#oo##ooooo/oo##oooooo/o##ooooooo","oo##oooooo/#oo##ooooo/##oo##oooo/#oo##ooooo/oo##oooooo","#oo##ooooo/##oo##oooo/o##oo##ooo/##oo##oooo/#oo##ooooo","##oo##oooo/o##oo##ooo/oo##oo##oo/o##oo##ooo/##oo##oooo"].map(function (f) { return f.split("/").join(""); });
+
+  function setup(root) {
+    if (root.__ie) return; root.__ie = true;
+    var all = function (s) { return Array.prototype.slice.call(root.querySelectorAll(s)); };
+
+    // titles rise word by word; blocks rise as they come into view
+    if (!calm && "IntersectionObserver" in window) {
+      all("[data-ie-split]").forEach(function (h) {
+        var i = 0;
+        (function walk(n) { Array.prototype.slice.call(n.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) { var f = document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) { if (!p) return; if (/^\s+$/.test(p)) { f.appendChild(document.createTextNode(p)); return; }
+              var s = document.createElement("span"); s.className = "w"; s.style.setProperty("--i", i++); s.textContent = p; f.appendChild(s); });
+            c.parentNode.replaceChild(f, c); }
+          else if (c.nodeType === 1 && c.tagName !== "BR") walk(c); }); })(h);
+      });
+      root.classList.add("is-js");
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -10% 0px" });
+      all(".ie-r, [data-ie-split]").forEach(function (el) { io.observe(el); });
+    }
+
+    // chapter pill: the chapter that has reached the upper part of the screen is marked; a tap scrolls to it
+    var nav = root.querySelector(".ie-nav-ch"), ind = root.querySelector(".ie-nav-ind"), links = all(".ie-nav-ch a");
+    var secs = links.map(function (a) { return root.querySelector(a.getAttribute("href")); });
+    links.forEach(function (a, k) { a.addEventListener("click", function (e) { e.preventDefault(); if (!secs[k]) return;
+      scrollTo({ top: secs[k].getBoundingClientRect().top + scrollY - 70, behavior: calm ? "auto" : "smooth" }); }); });
+    root.__mark = function () {
+      var vh = innerHeight, act = -1;
+      secs.forEach(function (s, k) { if (s && s.getBoundingClientRect().top <= vh * .4) act = k; });
+      if (root.__act === act) return; root.__act = act;
+      links.forEach(function (a, k) { a.classList.toggle("on", k === act); if (k === act) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+      if (act < 0) { ind.style.opacity = 0; return; }
+      var a = links[act]; ind.style.opacity = 1; ind.style.width = a.offsetWidth + "px"; ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+      if (nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: calm ? "auto" : "smooth" });
+    };
+
+    // callouts: pointing at a legend item lifts its number on the screen, and the other way round
+    all("[data-ie-ev]").forEach(function (ev) {
+      var pins = Array.prototype.slice.call(ev.querySelectorAll(".ie-pin")), items = Array.prototype.slice.call(ev.querySelectorAll(".ie-legend li"));
+      var hot = function (n) { pins.forEach(function (p) { p.classList.toggle("hot", p.getAttribute("data-n") === n); }); items.forEach(function (l) { l.classList.toggle("hot", l.getAttribute("data-n") === n); }); };
+      items.forEach(function (l) { l.addEventListener("mouseenter", function () { hot(l.getAttribute("data-n")); }); l.addEventListener("mouseleave", function () { hot(null); }); });
+    });
+
+    // screens open large; Esc, the close button or a click outside closes it and gives focus back
+    var lb = root.querySelector("[data-ie-lb]"), lbImg = lb.querySelector("img"), opener = null;
+    var close = function () { if (lb.hidden) return; lb.hidden = true; document.documentElement.style.overflow = ""; if (opener) opener.focus(); };
+    all("[data-ie-zoom]").forEach(function (b) {
+      var img = b.querySelector("img"); b.setAttribute("aria-label", "Enlarge: " + (img.getAttribute("alt") || "image"));
+      b.addEventListener("click", function () { opener = b; lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; lb.hidden = false; document.documentElement.style.overflow = "hidden"; lb.querySelector(".ie-lb-x").focus(); });
+    });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.closest(".ie-lb-x")) close(); });
+    addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+    // the prototype loads only when asked, scaled to its frame
+    var live = root.querySelector("[data-ie-live]");
+    if (live) live.querySelector("[data-ie-load]").addEventListener("click", function () {
+      var fr = document.createElement("iframe"); fr.src = "/vishnuvardhana0402/Vishnu/preview/case/intent-email/prototype/"; fr.title = "Intent Email web app prototype, sample data";
+      live.innerHTML = ""; live.appendChild(fr);
+      var fit = function () { fr.style.transform = "scale(" + (live.clientWidth / 1440) + ")"; }; fit(); addEventListener("resize", fit); fr.focus();
+    });
+
+    // Let's Talk: the portfolio's moving dot-arrows
+    var talk = root.querySelector(".ie-btn--talk");
+    if (talk) { var svg = talk.querySelector("svg"); root.__cells = [];
+      for (var y = 0; y < 5; y++) for (var x = 0; x < 10; x++) { var r = document.createElementNS("http://www.w3.org/2000/svg", "rect"); r.setAttribute("x", x * 3 + .3); r.setAttribute("y", y * 3 + .3); r.setAttribute("width", 2.4); r.setAttribute("height", 2.4); r.setAttribute("rx", .55); svg.appendChild(r); root.__cells.push(r); }
+      talk.style.setProperty("--tw", talk.offsetWidth + "px"); }
+    root.__art = root.querySelector(".ie-hero-art img");
+  }
+
+  var frame = 0, tick = 0;
+  function loop() {
+    var root = document.querySelector("[data-ie]"); if (!root) return;
+    setup(root);
+    root.__mark();
+    if (root.__cells) { if (!calm && ++tick % 2 === 0) frame = (frame + 1) % F.length; var s = F[frame]; root.__cells.forEach(function (c, i) { c.classList.toggle("on", s[i] === "#"); }); }
+    if (root.__art && !calm) root.__art.style.setProperty("--py", Math.round(Math.min(scrollY, innerHeight) * .18) + "px");
+  }
+  setInterval(loop, 70);
+})();
+</script>
+<!--/intent:assets-->
 <style id="mp-css">
 /* ══ More projects: a full screen slider. Each project stands in its own coloured scene, its name set huge behind
    the devices. The scene is three layers drawn in WebGL (background, name, devices) that shift apart a little with
