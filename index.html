@@ -62,6 +62,8 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -252,23 +254,23 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
 .hx-mname .l { display: block; padding: 0.04em 0.06em; white-space: nowrap; }
 .hx-mname i { font-style: normal; }
 .hx-mname.in { opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; }
-html.hx-mname-on .hx-photo { position: relative; z-index: 1; }
+html.hx-mname-on .hx-photo { z-index: 1; }
 @media (prefers-reduced-motion: reduce) { .hx-mname { transition: none; opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; } }
 </style>
 <style id="hx-ph-css">
-/* phones: the hero arrives as one quick cascade: the name, then the photo, the line, "Open to new work" and the top
-   buttons, each a beat after the last and all overlapping, so it reads as one movement (about a second in all) */
+/* phones: the hero arrives as one quick cascade, all of it within about a second: the name, then the photo, the line,
+   "Open to new work" and the top buttons, each a beat after the last and overlapping, so it reads as one movement */
 @media (max-width: 760px) {
   html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-top, html.hx-intro.hx-ph:not(.hx-all) .hx-photo, html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-sign,
-  html.hx-intro.hx-ph:not(.hx-all) .hx-avail, html.hx-intro.hx-ph:not(.hx-all) .hx-hint { opacity: 0 !important; translate: 0 20px !important; filter: blur(10px) !important; }
+  html.hx-intro.hx-ph:not(.hx-all) .hx-avail, html.hx-intro.hx-ph:not(.hx-all) .hx-hint { opacity: 0 !important; translate: 0 18px !important; scale: 1 !important; filter: blur(8px) !important; }
   html.hx-intro.hx-ph body.hero .hx-top { visibility: visible !important; }
   html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint {
-    transition: opacity .8s cubic-bezier(.22,1,.36,1), translate 1s cubic-bezier(.16,1,.3,1), filter .8s cubic-bezier(.22,1,.36,1), scale 1s cubic-bezier(.16,1,.3,1) !important; }
-  html.hx-ph .hx-mname { transition-duration: .8s, 1s, .8s, 1s !important; transition-delay: 0s !important; }
-  html.hx-ph .hx-photo { transition-delay: .12s !important; }
-  html.hx-ph body.hero .hx-sign { transition-delay: .26s !important; }
-  html.hx-ph .hx-avail, html.hx-ph .hx-hint { transition-delay: .36s !important; }
-  html.hx-ph body.hero .hx-top { transition-delay: .44s !important; }
+    transition: opacity .6s cubic-bezier(.22,1,.36,1), translate .75s cubic-bezier(.16,1,.3,1), filter .6s cubic-bezier(.22,1,.36,1), scale .75s cubic-bezier(.16,1,.3,1) !important; }
+  html.hx-ph .hx-mname { transition-duration: .6s, .75s, .6s, .75s !important; transition-delay: 0s !important; }
+  html.hx-ph .hx-photo { transition-delay: .08s !important; }
+  html.hx-ph body.hero .hx-sign { transition-delay: .16s !important; }
+  html.hx-ph .hx-avail, html.hx-ph .hx-hint { transition-delay: .22s !important; }
+  html.hx-ph body.hero .hx-top { transition-delay: .28s !important; }
 }
 @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
   html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint, html.hx-ph .hx-mname { transition: none !important; }
@@ -981,7 +983,7 @@ void main() {
     // two frames first, so the hidden state is on screen and every step transitions from it
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return;
       if (PH) { T0 = performance.now(); html.classList.add("hx-s1", "hx-s2", "hx-s3", "hx-s4", "hx-all"); raf = requestAnimationFrame(wave);
-      if (window.__hxIntroName) window.__hxIntroName(performance.now()); at(1600, finish); return; }
+      if (window.__hxIntroName) window.__hxIntroName(performance.now()); at(1200, finish); return; }
     T0 = performance.now();
       html.classList.add("hx-s1"); raf = requestAnimationFrame(wave);
       at(350, () => { html.classList.add("hx-s2"); if (window.__hxIntroName) window.__hxIntroName(performance.now() + 250); });
@@ -998,9 +1000,10 @@ void main() {
   if (PH) {   // phones: begin as soon as the photo is ready (at most 0.7 s), without waiting for the rest of the page
    const go = () => { const img = document.querySelector(".hx-photo img");
      const pic = !img ? Promise.resolve() : img.decode ? img.decode().catch(() => {}) : new Promise(r => img.complete ? r() : img.addEventListener("load", r, { once: true }));
-     Promise.race([pic, new Promise(r => setTimeout(r, 700))]).then(start); };
+     const css = window.__hxCss ? Promise.resolve() : new Promise(r => document.addEventListener("hx-css", r, { once: true }));
+     css.then(() => Promise.race([pic, new Promise(r => setTimeout(r, 600))])).then(start); };
    if (document.querySelector(".hx-photo img")) go(); else document.addEventListener("DOMContentLoaded", go);
-   setTimeout(start, 1200);
+   setTimeout(() => { if (window.__hxCss) start(); }, 1500); setTimeout(start, 4000);
  } else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready); else ready();
   setTimeout(start, 6000);   // a last resort if the page is very slow
   // a visitor who scrolls straight away gets the page at once
@@ -2855,6 +2858,7 @@ void main() {
   /* the hero line: with the tight tracking the word gaps closed up ("problemeveryone"); open them a touch */
   .hx-quote p { word-spacing: 0.08em; }
 </style>
+<script>/* the hero's styles are all in by here: the phone opening may begin */ window.__hxCss = 1; document.dispatchEvent(new Event("hx-css"));</script>
 <style id="yp-v21b">
   /* the drum: the same sentence over two screens of scroll instead of four */
   #about-drum .track { height: 200vh; }
