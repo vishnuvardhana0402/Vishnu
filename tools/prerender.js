@@ -3,14 +3,14 @@
    page's words.
 
    Run it after any change to the case studies:
-     1. serve the folder that holds this repo as /vishnuvardhana0402/Vishnu/preview/ (for example: mkdir -p /tmp/srv && ln -s "$PWD" /tmp/srv/Vishnu
+     1. serve the folder that holds this repo as /vishnuvardhana0402/Vishnu/preview-2/ (for example: mkdir -p /tmp/srv && ln -s "$PWD" /tmp/srv/Vishnu
         && cd /tmp/srv && python3 -m http.server 8770)
-     2. node tools/prerender.js http://127.0.0.1:8770/vishnuvardhana0402/Vishnu/preview/
+     2. node tools/prerender.js http://127.0.0.1:8770/vishnuvardhana0402/Vishnu/preview-2/
    It needs Playwright with Chromium (npm i -D playwright && npx playwright install chromium). */
 const fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
 
-const SITE = 'https://vishnuvardhana0402.github.io/vishnuvardhana0402/Vishnu/preview/';
+const SITE = 'https://vishnuvardhana0402.github.io/vishnuvardhana0402/Vishnu/preview-2/';
 const NAME = 'Vishnuvardhana Chary Sriramoju';
 const ROOT = path.resolve(__dirname, '..');
 const ROUTES = [
@@ -103,7 +103,7 @@ ${body}
 }
 
 (async () => {
-  const base = process.argv[2] || 'http://127.0.0.1:8770/vishnuvardhana0402/Vishnu/preview/';
+  const base = process.argv[2] || 'http://127.0.0.1:8770/vishnuvardhana0402/Vishnu/preview-2/';
   // 1. the home page's tags
   const idx = path.join(ROOT, 'index.html');
   let html = fs.readFileSync(idx, 'utf8');
@@ -123,7 +123,7 @@ ${body}
   await b.close();
   // 3. a 404 that sends unknown addresses home, and a sitemap
   fs.writeFileSync(path.join(ROOT, '404.html'), `<!doctype html><meta charset="utf-8"><title>${esc(NAME)}</title><meta name="robots" content="noindex">
-<script>location.replace("/vishnuvardhana0402/Vishnu/preview/");</script><p><a href="/vishnuvardhana0402/Vishnu/preview/">Go to the portfolio</a></p>\n`);
+<script>location.replace("/vishnuvardhana0402/Vishnu/preview-2/");</script><p><a href="/vishnuvardhana0402/Vishnu/preview-2/">Go to the portfolio</a></p>\n`);
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     ROUTES.map(r => `  <url><loc>${SITE}${r.path}</loc></url>`).join('\n') + `\n</urlset>\n`);
 })();
