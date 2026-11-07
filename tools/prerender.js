@@ -15,7 +15,9 @@ const NAME = 'Vishnuvardhana Chary Sriramoju';
 const ROOT = path.resolve(__dirname, '..');
 const ROUTES = [
   { hash: '#/', path: '', title: `${NAME} | Product Designer`, image: 'og/home.jpg',
-    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case study: VE.AI (AI browser).' },
+    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: Intent Email and Ve Browser.' },
+  { hash: '#/intent', path: 'case/intent-email/', title: `Intent Email: proactive email help that leaves you in control | ${NAME}`, image: 'og/intent-email.jpg',
+    desc: 'Case study: Intent Email, Ve\'s email assistant for work Gmail and Outlook. It labels mail, prepares replies and follow-ups, sends a morning brief and takes requests by reply, while every email still goes out on the person\'s say-so.' },
   { hash: '#/case', path: 'case/ve-browser/', title: `Ve Browser: an AI browser that stays one step ahead | ${NAME}`, image: 'og/ve-browser.jpg',
     desc: 'Case study: Ve Browser, a proactive AI that sees your whole working day, works out what comes next and has it ready, from the Dynamic Notch to the AI Browser. Designed from first idea to final screen.' },
   { hash: '#/more', path: 'more/', title: `More projects | ${NAME}`, image: 'og/more.jpg',
