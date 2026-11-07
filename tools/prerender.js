@@ -15,17 +15,13 @@ const NAME = 'Vishnuvardhana Chary Sriramoju';
 const ROOT = path.resolve(__dirname, '..');
 const ROUTES = [
   { hash: '#/', path: '', title: `${NAME} | Product Designer`, image: 'og/home.jpg',
-    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: VE.AI (AI browser) and Top-10 Mobiles (live store dashboards).' },
+    desc: 'Vishnuvardhana Chary Sriramoju - Product Designer, Hyderabad. I design AI-native products: agents, prediction, voice and the workflows between them. Case studies: Intent Email and Ve Browser.' },
+  { hash: '#/intent', path: 'case/intent-email/', title: `Intent Email: proactive email help that leaves you in control | ${NAME}`, image: 'og/intent-email.jpg',
+    desc: 'Case study: Intent Email, Ve\'s email assistant for work Gmail and Outlook. It labels mail, prepares replies and follow-ups, sends a morning brief and takes requests by reply, while every email still goes out on the person\'s say-so.' },
   { hash: '#/case', path: 'case/ve-browser/', title: `Ve Browser: an AI browser that stays one step ahead | ${NAME}`, image: 'og/ve-browser.jpg',
     desc: 'Case study: Ve Browser, a proactive AI that sees your whole working day, works out what comes next and has it ready, from the Dynamic Notch to the AI Browser. Designed from first idea to final screen.' },
-  { hash: '#/dashboard', path: 'case/top-10-dashboards/', title: `Top-10 Mobiles dashboards: Store Admin and Super Admin | ${NAME}`, image: 'og/top-10-dashboards.jpg',
-    desc: 'Case study: the two live dashboards Top-10 Mobiles staff use to run every online order, Store Admin for each store and Super Admin for head office.' },
-  { hash: '#/apps', path: 'case/top-10-apps/', title: `Top-10 Mobiles apps: from a tap to your door | ${NAME}`, image: 'og/top-10-apps.jpg',
-    desc: 'Case study: a customer app to order phones online and a delivery partner app for store staff, with a code check every time an order changes hands.' },
-  { hash: '#/web', path: 'case/top-10-website/', title: `Top-10 Mobiles website: the whole store in any browser | ${NAME}`, image: 'og/top-10-website.jpg',
-    desc: 'Case study: the Top-10 Mobiles responsive website, the same store laid out for desktop, tablet and phone, with delivery or store pickup.' },
   { hash: '#/more', path: 'more/', title: `More projects | ${NAME}`, image: 'og/more.jpg',
-    desc: 'More projects by Vishnuvardhana Chary Sriramoju: EduBridge dashboard, Tata Neu app redesign, WanderWise travel app, the Top-10 Mobiles website and Vijayeesam.' },
+    desc: 'More projects by Vishnuvardhana Chary Sriramoju: Vijayeesam, WanderWise travel app, EduBridge dashboard and Tata Neu app redesign.' },
 ];
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const meta = r => [
@@ -86,12 +82,13 @@ function page(r, blocks, depth) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400..700&display=swap">
 <title>${esc(r.title)}</title>
 ${meta(r)}
 <script>/* visitors with JavaScript get the full, animated page at once */
 (function () { var b = location.pathname.replace(/index\\.html$/, "").replace(/(case\\/[^/]+|more)\\/?$/, ""), h = location.hash;
   location.replace(b + (/^#\\//.test(h) ? h : "${r.hash}")); })();</script>
-<style>body{margin:0;background:#0d0d11;color:#e9e7e2;font:17px/1.6 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:48px 20px 80px}
+<style>body{margin:0;background:#0d0d11;color:#e9e7e2;font:17px/1.6 'Google Sans',system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:48px 20px 80px}
 a{color:#fff}h1{font-size:2.2em;line-height:1.15}h2{margin-top:2em}blockquote{margin:1.2em 0;font-size:1.2em;color:#fff}header,footer{font-size:15px;opacity:.85}</style>
 </head>
 <body>
