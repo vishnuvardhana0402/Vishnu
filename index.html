@@ -56,6 +56,16 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -236,6 +246,38 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
 </style>
 <link rel="preload" as="image" href="/Vishnu/assets/home/ve-journey.webp">
 <link rel="preload" as="image" href="/Vishnu/assets/core/journey-vec.webp">
+<style id="hx-mname-css">
+/* phones: the name, flat and still, behind the photo; it arrives once, all of it together: rising out of a soft blur
+   while its letters settle closer */
+.hx-mname { position: absolute; left: 0; right: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; margin: 0;
+  font: 800 1em/0.9 'Google Sans', system-ui, sans-serif; letter-spacing: 0.02em; color: currentColor; text-transform: uppercase; pointer-events: none;
+  opacity: 0; transform: translateY(0.35em) scale(0.96); filter: blur(14px);
+  transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1.4s cubic-bezier(.16,1,.3,1), filter 1.1s cubic-bezier(.22,1,.36,1), letter-spacing 1.4s cubic-bezier(.16,1,.3,1); }
+.hx-mname .l { display: block; padding: 0.04em 0.06em; white-space: nowrap; }
+.hx-mname i { font-style: normal; }
+.hx-mname.in { opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; }
+html.hx-mname-on .hx-photo { z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .hx-mname { transition: none; opacity: 1; transform: none; filter: none; letter-spacing: -0.04em; } }
+</style>
+<style id="hx-ph-css">
+/* phones: the hero arrives as one quick cascade, all of it within about a second: the name, then the photo, the line,
+   "Open to new work" and the top buttons, each a beat after the last and overlapping, so it reads as one movement */
+@media (max-width: 760px) {
+  html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-top, html.hx-intro.hx-ph:not(.hx-all) .hx-photo, html.hx-intro.hx-ph:not(.hx-all) body.hero .hx-sign,
+  html.hx-intro.hx-ph:not(.hx-all) .hx-avail, html.hx-intro.hx-ph:not(.hx-all) .hx-hint { opacity: 0 !important; translate: 0 18px !important; scale: 1 !important; filter: blur(8px) !important; }
+  html.hx-intro.hx-ph body.hero .hx-top { visibility: visible !important; }
+  html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint {
+    transition: opacity .6s cubic-bezier(.22,1,.36,1), translate .75s cubic-bezier(.16,1,.3,1), filter .6s cubic-bezier(.22,1,.36,1), scale .75s cubic-bezier(.16,1,.3,1) !important; }
+  html.hx-ph .hx-mname { transition-duration: .6s, .75s, .6s, .75s !important; transition-delay: 0s !important; }
+  html.hx-ph .hx-photo { transition-delay: .08s !important; }
+  html.hx-ph body.hero .hx-sign { transition-delay: .16s !important; }
+  html.hx-ph .hx-avail, html.hx-ph .hx-hint { transition-delay: .22s !important; }
+  html.hx-ph body.hero .hx-top { transition-delay: .28s !important; }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  html.hx-ph body.hero .hx-top, html.hx-ph .hx-photo, html.hx-ph body.hero .hx-sign, html.hx-ph .hx-avail, html.hx-ph .hx-hint, html.hx-ph .hx-mname { transition: none !important; }
+}
+</style>
 </head>
 <body class="hero">
 <div class="hx-static" aria-hidden="false"><div class="hx-static-id"><img src="data:image/webp;base64,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" alt=""><div>Vishnuvardhan<small>Open to new work</small></div></div><h1 class="hx-static-title"><span>Product</span><span>Designer</span></h1><p class="hx-static-quote">I find the problem everyone learned to live with.</p></div>
@@ -698,7 +740,7 @@ void main() {
   // phones: the name alone, sized to the width and standing still above the head, so it reads in full (the line that
   // slides across the screen only ever showed pieces of it there)
   const TEXT = PHONE ? "Vishnu|vardhan" : "Vishnuvardhan - Product Designer";   // "|": a line break (phones, two lines)
-  const fsOf = () => { const W = innerWidth, H = innerHeight, base = Math.min(0.3 * H, 0.36 * W); if (!PHONE) return base;
+  const fsOf = () => { const W = innerWidth, H = PHONE ? Math.max(innerHeight, (window.screen && screen.height) || 0) : innerHeight, base = Math.min(0.3 * H, 0.36 * W); if (!PHONE) return base;
     const m = document.createElement("canvas").getContext("2d"); m.font = "800 100px 'Google Sans', system-ui, sans-serif"; if ("letterSpacing" in m) m.letterSpacing = "-4px";
     const w = Math.max.apply(null, TEXT.toUpperCase().split("|").map(t => m.measureText(t).width));
     return Math.min(base, 100 * W * 0.86 / Math.max(1, w)); };
@@ -844,6 +886,27 @@ void main() {
   // follows its CSS: min(70vh, 125vw) on upright screens)
   const lineY = () => { const W = innerWidth, H = innerHeight; if (H < W * 1.3) return H * 0.5;
     const ph = Math.min(0.7 * H, 1.25 * W), fs = fsOf(); return H - ph - fs * (PHONE ? 1.6 : 0.1); };
+  // phones: the name is plain, flat text standing still behind the photo (no lens, no scroll); it rises in, letter by
+  // letter, as the page lands
+  if (PHONE) {
+    const nm = document.createElement("div"); nm.className = "hx-mname"; nm.setAttribute("aria-hidden", "true");
+    nm.innerHTML = TEXT.toUpperCase().split("|").map(t => '<span class="l">' + [...t].map((c, i) => '<i style="--i:' + i + '">' + c + '</i>').join("") + '</span>').join("");
+    // anchored like the photo, to the bottom of the hero, and sized from the width only: the browser's toolbar
+    // growing or shrinking as you scroll changes the screen's height, never where the name stands
+    let lastW = 0;
+    const place = () => { const W = innerWidth; if (W === lastW) return; lastW = W; const fs = fsOf();
+      nm.style.fontSize = fs + "px"; nm.style.top = "auto"; nm.style.bottom = "calc(min(70vh, 125vw) - " + (fs * 0.62).toFixed(1) + "px)"; };
+    const stage = document.createElement("div"); stage.className = "hx-stage";
+    const box = document.createElement("div"); box.className = "hx-pinbox"; stage.append(box);
+    [document.querySelector(".hx-dots"), document.querySelector(".hx-melt"), hx.h1, nm, photo, document.querySelector(".hx-sign"), hint, avail]
+      .forEach(el => { if (el) box.append(el); });
+    document.body.prepend(stage);
+    html.classList.add("hx-fish-on", "hx-mname-on"); hx.h1.setAttribute("aria-label", TEXT.replace("|", ""));
+    place(); addEventListener("resize", place); if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { lastW = 0; place(); });
+    const reveal = () => nm.classList.add("in");
+    window.__hxIntroName = t => { if (!(t > 1e14)) reveal(); }; setTimeout(reveal, 6500);
+    return;
+  }
   const back = lens(-0.3, false), front = lens(0.45, true), gl = back && front;
   // the layers, back to front, into the sticky box
   const stage = document.createElement("div"); stage.className = "hx-stage";
@@ -919,10 +982,14 @@ void main() {
     if (window.__queueDots) window.__queueDots();
     if (k < 1) raf = requestAnimationFrame(wave); };
   const at = (ms, f) => timers.push(setTimeout(f, ms));
+  // phones: everything in the hero arrives together, in one movement (see #hx-ph-css)
+  const PH = innerWidth <= 760; if (PH) html.classList.add("hx-ph");
   const start = () => { if (started || done) return; started = true;
     // two frames first, so the hidden state is on screen and every step transitions from it
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return;
-      T0 = performance.now();
+      if (PH) { T0 = performance.now(); html.classList.add("hx-s1", "hx-s2", "hx-s3", "hx-s4", "hx-all"); raf = requestAnimationFrame(wave);
+      if (window.__hxIntroName) window.__hxIntroName(performance.now()); at(1200, finish); return; }
+    T0 = performance.now();
       html.classList.add("hx-s1"); raf = requestAnimationFrame(wave);
       at(350, () => { html.classList.add("hx-s2"); if (window.__hxIntroName) window.__hxIntroName(performance.now() + 250); });
       at(1550, () => html.classList.add("hx-s3"));
@@ -935,7 +1002,14 @@ void main() {
     const pic = !img ? Promise.resolve() : img.decode ? img.decode().catch(() => {}) :
       new Promise(r => img.complete ? r() : img.addEventListener("load", r, { once: true }));
     Promise.race([Promise.all([pic, document.fonts ? document.fonts.ready : null]), new Promise(r => setTimeout(r, 1500))]).then(start); };
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready); else ready();
+  if (PH) {   // phones: begin as soon as the photo is ready (at most 0.7 s), without waiting for the rest of the page
+   const go = () => { const img = document.querySelector(".hx-photo img");
+     const pic = !img ? Promise.resolve() : img.decode ? img.decode().catch(() => {}) : new Promise(r => img.complete ? r() : img.addEventListener("load", r, { once: true }));
+     const css = window.__hxCss ? Promise.resolve() : new Promise(r => document.addEventListener("hx-css", r, { once: true }));
+     css.then(() => Promise.race([pic, new Promise(r => setTimeout(r, 600))])).then(start); };
+   if (document.querySelector(".hx-photo img")) go(); else document.addEventListener("DOMContentLoaded", go);
+   setTimeout(() => { if (window.__hxCss) start(); }, 1500); setTimeout(start, 4000);
+ } else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready); else ready();
   setTimeout(start, 6000);   // a last resort if the page is very slow
   // a visitor who scrolls straight away gets the page at once
   addEventListener("scroll", function skip() { if (scrollY > 40) { removeEventListener("scroll", skip); finish(); } }, { passive: true });
@@ -2789,6 +2863,7 @@ void main() {
   /* the hero line: with the tight tracking the word gaps closed up ("problemeveryone"); open them a touch */
   .hx-quote p { word-spacing: 0.08em; }
 </style>
+<script>/* the hero's styles are all in by here: the phone opening may begin */ window.__hxCss = 1; document.dispatchEvent(new Event("hx-css"));</script>
 <style id="yp-v21b">
   /* the drum: the same sentence over two screens of scroll instead of four */
   #about-drum .track { height: 200vh; }
