@@ -50,6 +50,14 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
+    "#/intent": "Intent Email | Email assistant case study | Vishnuvardhana Chary Sriramoju",
     "#/more": "More projects | Vishnuvardhana Chary Sriramoju" };
   var base = location.pathname.replace(/index\.html$/, "").replace(/(case\/[^/]+|more)\/?$/, "");
   var fromPath = function () { var rest = location.pathname.slice(base.length).replace(/index\.html$/, "");
@@ -227,6 +235,20 @@ try { var s = null; try { s = sessionStorage.getItem("hx-theme"); } catch (e) {}
   #about-drum .row img.ydr-im { width: 1.62em; height: 0.74em; margin-top: -0.04em; border-radius: 0.2em; object-fit: cover; flex: none; display: block;
     box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0.12em 0.3em rgba(0,0,0,0.45); filter: saturate(0.9) contrast(1.04); background: #1a1a20; }
   @media (max-width: 700px) { #about-drum .row img.ydr-im { width: 1.3em; height: 0.66em; border-radius: 0.16em; } }
+</style>
+<link rel="preload" as="image" href="/vishnuvardhana0402/Vishnu/preview-2/assets/home/ve-journey.webp">
+<link rel="preload" as="image" href="/vishnuvardhana0402/Vishnu/preview-2/assets/core/journey-vec.webp">
+<style id="hx-mname-css">
+/* phones: the name, flat and still, behind the photo; each letter rises in once as the page lands */
+.hx-mname { position: absolute; left: 0; right: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; margin: 0;
+  font: 800 1em/0.9 'Google Sans', system-ui, sans-serif; letter-spacing: -0.04em; color: currentColor; text-transform: uppercase; pointer-events: none; }
+.hx-mname .l { display: block; overflow: hidden; padding: 0.04em 0.06em; white-space: nowrap; }
+.hx-mname i { display: inline-block; font-style: normal; opacity: 0; transform: translateY(0.9em); filter: blur(6px);
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.16,1,.3,1), filter .7s ease; transition-delay: calc(var(--i) * 45ms); }
+.hx-mname .l + .l i { transition-delay: calc(var(--i) * 45ms + 160ms); }
+.hx-mname.in i { opacity: 1; transform: none; filter: none; }
+html.hx-mname-on .hx-photo { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .hx-mname i { transition: none; opacity: 1; transform: none; filter: none; } }
 </style>
 </head>
 <body class="hero">
@@ -836,6 +858,24 @@ void main() {
   // follows its CSS: min(70vh, 125vw) on upright screens)
   const lineY = () => { const W = innerWidth, H = innerHeight; if (H < W * 1.3) return H * 0.5;
     const ph = Math.min(0.7 * H, 1.25 * W), fs = fsOf(); return H - ph - fs * (PHONE ? 1.6 : 0.1); };
+  // phones: the name is plain, flat text standing still behind the photo (no lens, no scroll); it rises in, letter by
+  // letter, as the page lands
+  if (PHONE) {
+    const nm = document.createElement("div"); nm.className = "hx-mname"; nm.setAttribute("aria-hidden", "true");
+    nm.innerHTML = TEXT.toUpperCase().split("|").map(t => '<span class="l">' + [...t].map((c, i) => '<i style="--i:' + i + '">' + c + '</i>').join("") + '</span>').join("");
+    const place = () => { const W = innerWidth, H = innerHeight, fs = fsOf(), ph = Math.min(0.7 * H, 1.25 * W);
+      nm.style.fontSize = fs + "px"; nm.style.top = Math.max(84, H - ph - fs * 1.32) + "px"; };
+    const stage = document.createElement("div"); stage.className = "hx-stage";
+    const box = document.createElement("div"); box.className = "hx-pinbox"; stage.append(box);
+    [document.querySelector(".hx-dots"), document.querySelector(".hx-melt"), hx.h1, nm, photo, document.querySelector(".hx-sign"), hint, avail]
+      .forEach(el => { if (el) box.append(el); });
+    document.body.prepend(stage);
+    html.classList.add("hx-fish-on", "hx-mname-on"); hx.h1.setAttribute("aria-label", TEXT.replace("|", ""));
+    place(); addEventListener("resize", place); if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    const reveal = () => nm.classList.add("in");
+    window.__hxIntroName = () => setTimeout(reveal, 120); setTimeout(reveal, 2600);
+    return;
+  }
   const back = lens(-0.3, false), front = lens(0.45, true), gl = back && front;
   // the layers, back to front, into the sticky box
   const stage = document.createElement("div"); stage.className = "hx-stage";
@@ -4318,7 +4358,7 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
     
     <div style="position: absolute; inset: 0; background-image: var(--yp-a0); background-size: 240px 240px; opacity: 0.34; mix-blend-mode: overlay;"></div>
   </div>
-  <div aria-hidden="true" style="position: absolute; z-index: 1; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: min(calc(100% - 2 * var(--yp-case-inset, clamp(24px, 7vw, 132px))), var(--yp-case-max, calc(58vh * 1.7))); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); pointer-events: none;">
+  <div aria-hidden="true" data-case-lines="" style="position: absolute; z-index: 1; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: min(calc(100% - 2 * var(--yp-case-inset, clamp(24px, 7vw, 132px))), var(--yp-case-max, calc(58vh * 1.7))); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); pointer-events: none;">
     <div style="border-left: 1px solid rgba(255,255,255,0.08);"></div>
     <div style="border-left: 1px solid rgba(255,255,255,0.08);"></div>
     <div style="border-left: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08);"></div>
@@ -4382,15 +4422,15 @@ window.__ypImgs = function (r) { r.querySelectorAll('img[data-yp-src]').forEach(
     <div class="ytl-rail" aria-hidden="true"><i data-ytl-fill=""></i></div>
     <ol class="ytl-list" data-ytl-list=""><li class="ytl-item" data-ytl-item="">
         <div class="ytl-text" data-rise="" data-rise-x="-1"><span class="ytl-date">(2019 to 2023)</span><h3>B.Tech, Computer Science &amp; Engineering</h3><span class="ytl-org">Vaagdevi Engineering College, Warangal</span><p>Four years of Computer Science &amp; Engineering. It gave me a builder’s view of how products actually work.</p></div>
-        <div class="ytl-media" data-rise="" data-rise-x="1"><div class="ytl-img ytl-logo" role="img" aria-label="Vaagdevi Engineering College" style="background: #16161b; display: flex; align-items: center; justify-content: center; color: #f4f2ed; font-weight: 700; font-size: clamp(40px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; text-align: center;">VEC</div></div>
+        <div class="ytl-media"><div class="ytl-img ytl-logo" role="img" aria-label="Vaagdevi Engineering College" style="background: #16161b; display: flex; align-items: center; justify-content: center; color: #f4f2ed; font-weight: 700; font-size: clamp(40px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; text-align: center;">VEC</div></div>
         <i class="ytl-dot" aria-hidden="true"></i>
       </li><li class="ytl-item is-flip" data-ytl-item="">
         <div class="ytl-text" data-rise="" data-rise-x="1"><span class="ytl-date">(Sep 2023 to Jul 2025)</span><h3>UI/UX Designer</h3><span class="ytl-org">Incor Lake City Projects Private Limited</span><p>Designed digital creatives, posters and banners, keeping layout, typography and brand consistent across every format.</p></div>
-        <div class="ytl-media" data-rise="" data-rise-x="-1"><div class="ytl-img ytl-logo" role="img" aria-label="Incor Lake City Projects" style="background: #16161b; display: flex; align-items: center; justify-content: center; color: #f4f2ed; font-weight: 700; font-size: clamp(40px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; text-align: center;">Incor</div></div>
+        <div class="ytl-media"><div class="ytl-img ytl-logo" role="img" aria-label="Incor Lake City Projects" style="background: #16161b; display: flex; align-items: center; justify-content: center; color: #f4f2ed; font-weight: 700; font-size: clamp(40px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; text-align: center;">Incor</div></div>
         <i class="ytl-dot" aria-hidden="true"></i>
       </li><li class="ytl-item" data-ytl-item="">
         <div class="ytl-text" data-rise="" data-rise-x="-1"><span class="ytl-date">(Aug 2025 to Present)</span><h3>Product Designer</h3><span class="ytl-org">VE.AI, Hyderabad</span><p>Designing VE.AI, an AI-powered productivity platform: AI prediction, agents, voice, adaptive memory and an AI browser.</p></div>
-        <div class="ytl-media" data-rise="" data-rise-x="1"><div class="ytl-img ytl-logo" role="img" aria-label="VE.AI logo" style="background: #ffffff url(&quot;/vishnuvardhana0402/Vishnu/preview-2/assets/inline/95bd8a661f3b.webp&quot;) center / contain no-repeat;"></div></div>
+        <div class="ytl-media"><div class="ytl-img ytl-logo" role="img" aria-label="Ve: the inbox that doesn’t wait for you" style="background: #ffffff url(&quot;/vishnuvardhana0402/Vishnu/preview-2/assets/home/ve-journey.webp&quot;) center / cover no-repeat;"></div></div>
         <i class="ytl-dot" aria-hidden="true"></i>
       </li></ol>
     <div class="ytl-end" aria-hidden="true"></div>
@@ -13907,6 +13947,8 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
   const SHORT = ["B.Tech, CSE", "UI/UX Designer", "Product Designer"];
   // a photo for a step replaces its logo tile in the card (null: keep the logo)
   const PHOTOS = [{ src: "/vishnuvardhana0402/Vishnu/preview-2/assets/core/journey-vec.webp", alt: "Vaagdevi Engineering College campus, Warangal" }, null, null];
+  // load every journey picture now, so each one is ready the moment its year is reached
+  ["/vishnuvardhana0402/Vishnu/preview-2/assets/core/journey-vec.webp", "/vishnuvardhana0402/Vishnu/preview-2/assets/home/ve-journey.webp"].forEach(function (u) { var im = new Image(); im.decoding = "async"; im.src = u; if (im.decode) im.decode().catch(function () {}); });
   const data = items.map((it, i) => {
     const q = s => it.querySelector(s);
     const date = (q(".ytl-date") || {}).textContent || "", years = date.match(/\d{4}/g) || [""];
@@ -14192,6 +14234,27 @@ html:not(.dark) #services .s7-card.is-in .nxd-n2 .nxd-ic { animation-name: nxdLI
     cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft - rail.offsetLeft - 20 - x); if (d < bd) { bd = d; best = i; } });
     ds.forEach(function (d, i) { d.classList.toggle("on", i === best); }); };
   rail.addEventListener("scroll", function () { if (!raf) raf = requestAnimationFrame(mark); }, { passive: true }); mark();
+})();
+</script>
+<script id="case-lines-reach">
+/* the case cards' column lines reach up to the hairline under "Built end to end.": the gap above the cards is drawn
+   with the same three columns, inside the heading's own section (which sits above the cards' section) */
+(function () {
+  var fit = function () {
+    var sec = document.getElementById("showcase"), lines = sec && sec.querySelector("[data-case-lines]"); if (!lines) return;
+    var rules = document.querySelectorAll("#work .yph-rule"), rule = rules[rules.length - 1]; if (!rule) return;
+    var host = rule.closest("section") || rule.parentElement, ext = host.querySelector(":scope > [data-case-lines-ext]");
+    if (!ext) { ext = lines.cloneNode(true); ext.removeAttribute("data-case-lines"); ext.setAttribute("data-case-lines-ext", "");
+      ext.style.transform = "none"; ext.style.bottom = "auto"; ext.style.zIndex = "0"; host.appendChild(ext); }
+    var hr = host.getBoundingClientRect(), rr = rule.getBoundingClientRect(), lr = lines.getBoundingClientRect(), sr = sec.getBoundingClientRect();
+    var bottom = Math.max(hr.bottom, sr.top), h = Math.round(bottom - rr.bottom);
+    var hidden = getComputedStyle(lines).display === "none" || !lines.offsetWidth || lr.width < 200 || innerWidth <= 760;
+    if (hidden || h <= 0 || h > 800) { ext.style.display = "none"; return; }
+    ext.style.display = "grid"; ext.style.left = Math.round(lr.left - hr.left) + "px"; ext.style.width = Math.round(lr.width) + "px";
+    ext.style.top = Math.round(rr.bottom - hr.top) + "px"; ext.style.height = h + "px";
+  };
+  addEventListener("load", fit); addEventListener("resize", fit); setTimeout(fit, 800); setTimeout(fit, 2500);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 })();
 </script>
 <script id="mail-to-gmail">
